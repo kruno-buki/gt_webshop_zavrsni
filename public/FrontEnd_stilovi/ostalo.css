@@ -1,3 +1,7 @@
+
+p{
+    font-size:1.5rem;
+}
 /* ! About us ( PROJEKTU) */
 .sekcija_informacije {
     display: grid;
@@ -28,10 +32,6 @@
     grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
     justify-items: center;
     align-items: center;
-
-
-
-
 }
 
 .about_info img {
@@ -44,16 +44,7 @@
 
 .about_info>p {
     margin: 1rem;
-
-
-
 }
-
-
-/* ---------------------------- */
-
-
-
 
 /* ----------------------KONTAKT */
 .narudzba_wraper {
