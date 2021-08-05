@@ -1,5 +1,9 @@
 # GameTech webshop
 
+## Webshop - electronic store for computer equipment
+
+## The final project for the bachelor's degree (VSITE).
+
 ## Završni projekt
 
 ![alt text](https://github.com/kruno-buki/gt_webshop_zavrsni/blob/main//public/IMG/git_prikaz.png?raw=true)
