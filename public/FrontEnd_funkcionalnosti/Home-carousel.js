@@ -1,12 +1,3 @@
-// const { default: gsap } = require("gsap/all");
-
-// const { default: gsap } = require("gsap/all");
-
-// const {
-//   default: gsap
-// } = require("gsap/all");
-
-// const { default: gsap } = require("gsap/all");
 
 var slideIndex = 1;
 
@@ -20,11 +11,9 @@ window.addEventListener("load", function () {
     plusSlides(1)
   }, 3000);
 
-  //COMMENT OUT THE LINE BELOW TO KEEP ARROWS PART OF MOUSEENTER PAUSE/RESUME
+
   slideshowContainer = document.getElementsByClassName('slideshow-kontenjer')[0];
 
-  //UNCOMMENT OUT THE LINE BELOW TO KEEP ARROWS PART OF MOUSEENTER PAUSE/RESUME
-  // slideshowContainer = document.getElementsByClassName('slideshow-kontenjer')[0];
 
   slideshowContainer.addEventListener('mouseenter', pause)
   slideshowContainer.addEventListener('mouseleave', resume)
@@ -39,7 +28,6 @@ function plusSlides(n) {
     showSlides(slideIndex += 1);
   }
 
-  //COMMENT OUT THE LINES BELOW TO KEEP ARROWS PART OF MOUSEENTER PAUSE/RESUME
 
   if (n === -1) {
     myTimer = setInterval(function () {
@@ -73,8 +61,6 @@ function plusSlides(n) {
       duration: 3,
     })
   })
-
-
 
 }
 

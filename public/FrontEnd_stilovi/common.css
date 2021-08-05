@@ -3,9 +3,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@300&family=Martel&family=Righteous&display=swap');
 
 :root {
-    /*     font-family: 'Londrina Solid', cursive;
-    font-family: 'Martel', serif;
-    font-family: 'Righteous', cursive; */
 
     --fontNaslov: 'Righteous', cursive;
     --font2: 'Varela Round', sans-serif;
@@ -190,7 +187,7 @@ nav {
 }
 
 .change .line1 {
-    /* transform: rotateZ(405deg) translate(-8px, -6px); */
+    
     transform: rotate(-405deg) translate(-8px, 8px);
 }
 

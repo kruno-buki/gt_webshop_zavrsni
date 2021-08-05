@@ -131,9 +131,7 @@ div.kontakt_wraper>div>p:nth-child(12) {
 
 /* ----------------------Karijera */
 .want_you_wrapper {
-    /* display:flex;
-    flex-wrap: wrap;
-    flex-direction: column; */
+
     display: grid;
     grid-template-columns: 1fr;
     justify-items: center;
@@ -206,9 +204,6 @@ div.kontakt_wraper>div>p:nth-child(12) {
     text-align: center;
 
 }
-
-
-
 
 /* ! 404 - page not found */
 

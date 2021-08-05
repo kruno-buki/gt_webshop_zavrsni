@@ -1,8 +1,3 @@
-// const { default: gsap } = require("gsap/all");
-
-// const { default: gsap } = require("gsap/all");
-
-// const { default: gsap } = require("gsap/all");
 
 // ! HAMBI program:
 const menuIcon = document.querySelector(".hamburger-menu");

@@ -68,11 +68,9 @@ gsap.utils.toArray(laptop).forEach((e) => {
     ScrollTrigger.create({
         trigger: e,
         animation: gameBusinessSekcije,
-        markers:true,
+        // markers:true,
         start: "top center",
         end: "top center",
-
-        // pin: true,
 
     });
 

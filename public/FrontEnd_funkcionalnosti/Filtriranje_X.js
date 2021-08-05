@@ -20,9 +20,6 @@ Array.from(btns).forEach(e => {
         let trenutno = document.querySelector('.active');
         trenutno.className = highlightButton_off(trenutno.className);
         e.className += highlightButton_on(e);
-         //resetiranje range-bar
-        //  slider.value=1000;
-        //  output.textContent=1000;
        
     })
 })
@@ -42,23 +39,14 @@ function prikazi(dugme) {
         
         if (!e.className.match(' ' + dugme)) {
             e.className = e.className.replace(' product-s', ' product-ns');
-            // e.className = e.className.replace(' product-s', ' product-ns');
+
         }
         if (e.className.match(' ' + dugme) && e.className.match(' product-ns')) {
             e.className = e.className.replace(' product-ns', ' product-s');
         }
-
-        // if (e.className.match(' ' + dugme) && e.className.match(' r-ns')) {
-        //     e.className = e.className.replace(' r-ns', ' r-s');
-        // }
-        // if (e.className.match(' ' + dugme) && e.className.match(' r-s')) {
-        //     e.className = e.className.replace(' r-s', ' r-ns');
-        // }
       
         slider.value=1000;
-        output.textContent=1000;
-     
-        
+        output.textContent=1000;    
     })
 }
 //? prikaz svih
@@ -83,9 +71,8 @@ prikaziSve();
 // ?-----------------------------------------
 // !FILTRIRANJE - range
 
-output.innerHTML = slider.value; // Display the default slider value
-// Update the current slider value (each time you drag the slider handle)
-
+output.innerHTML = slider.value; 
+//  the default slider vrijednost
 
 // ? preko .containera možeš jer je nodeList ali zato ne možeš (!) preko .divElementi jer je to HTML kolekcija
 
@@ -97,15 +84,12 @@ function filtriranjeRange(output) {
         let cijena = parseInt((e.textContent).replace(/\s+/g, '').trim());
 
         if (cijena <= parseInt(output.textContent)) {
-            // ciljaniElement.classList = ciljaniElement.className.replace('product-s', 'r-ns');
+ 
             ciljaniElement.classList = ciljaniElement.className.replace('product-s', 'r-ns');
-            // ciljaniElement.classList = ciljaniElement.className.replace('product-ns', '');
-            
-            // ciljaniElement.classList = ciljaniElement.className.replace('product-s', 'r-ns');
-            // ciljaniElement.classList = ciljaniElement.className.replace('r-s', 'product-ns');
+ 
         }
         if (cijena >= parseInt(output.textContent)) {
-            // ciljaniElement.classList = ciljaniElement.className.replace('r-ns', 'product-s');
+
             ciljaniElement.classList = ciljaniElement.className.replace('r-ns', 'product-s');
         }
      
