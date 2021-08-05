@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 CREATE DATABASE IF NOT EXISTS `gt_web_shop` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `gt_web_shop`;
 
-USE gt_web_shop2;
+USE gt_web_shop;
 -- --------------------------------------------------------
 
 --
