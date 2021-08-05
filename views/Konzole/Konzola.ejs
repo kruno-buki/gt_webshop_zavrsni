@@ -110,12 +110,12 @@
                 <%if(dataAll[0].stanje>0)  {%>
                 <form action="/konzole" method="POST">
                     <input name="id" type="hidden" value="<%= dataAll[0].artikl_ID%>">
-                    <button type="submit" class="addBasket uKosaru">U košaricu</button>
+                    <button type="submit" class="addBasket uKosaru">u košaricu</button>
                 </form>
 
                 <%} else{%>
 
-                <button type="submit" class="uKosaru addBasket stanje-nula">U košaricu</button>
+                <button type="submit" class="uKosaru addBasket stanje-nula">u košaricu</button>
                 <%} %>
             </div>
             <!-- ---------- ------------------------------------- -->
@@ -125,55 +125,50 @@
                     <div class='akcijski-oznaka'>
                         <p class='akcijski-znak'><%=dataAll[1].postotak%>%</p>
                     </div><%}%>
-                            <a href="/konzole/32">
+                        <a href="/konzole/32">
                                 <img src="./Stranice_dodaci/Konzole_dodaci/Konzola32/nintendo-switch-lite-console-yellow.jpg"
                                     alt="nitendo yellow ">
                             </a>
-                        </div>
+                </div>
+                <h1> <%= dataAll[1].nazivArtikla %> </h1>
+                <ul>
+                    <li>5.5" Touch Screen</li>
+                    <li>1280 x 720</li>
+                    <li>NVIDIA Custom Tegra processor</li>
+                    <li>32 GB</li>
+                    <li>D-pad style control pad</li>
+                    <li>USB Type-C</li>
+                </ul>
+                <div class="cijena">
+                    <p> <% if(dataAll[1].akcija_akcija_ID!== null){%>
 
-                        <h1>
-                            <%= dataAll[1].nazivArtikla %>
-                    </h1>
+                        <span class='cijena-akcija cijena-proizvoda' name='cijena'>
+                            <%= dataAll[1].akcijskaCijena.toFixed(2) %> kn
+                        </span>
+                        <span class='stara-cijena' name='cijena'>
+                            <%= dataAll[1].cijena %> kn
+                        </span>
+                    </p>
+                    <%}else {%>
+                    <p>
+                        <span class='cijena-proizvoda' name='cijena'>
+                            <%= dataAll[1].cijena %> kn
+                        </span>
+                        <%}%>
+                    </p>
+                </div>
+                <!-- ! FORMA STARTA -->
+                <%if(dataAll[1].stanje>0)  {%>
 
-                    <ul>
-                        <li>5.5" Touch Screen</li>
-                        <li>1280 x 720</li>
-                        <li>NVIDIA Custom Tegra processor</li>
-                        <li>32 GB</li>
-                        <li>D-pad style control pad</li>
-                        <li>USB Type-C</li>
-                    </ul>
-                    <div class="cijena">
-                        <p> <% if(dataAll[1].akcija_akcija_ID!== null){%>
+                <form action="/konzole" method="POST">
+                    <input name="id" type="hidden" value="<%= dataAll[1].artikl_ID%>">
+                    <button type="submit" class="addBasket uKosaru">u košaricu</button>
+                </form>
 
-                            <span class='cijena-akcija cijena-proizvoda' name='cijena'>
-                                <%= dataAll[1].akcijskaCijena.toFixed(2) %> kn
-                            </span>
-                            <span class='stara-cijena' name='cijena'>
-                                <%= dataAll[1].cijena %> kn
-                            </span>
-                        </p>
-                        <%}else {%>
-                        <p>
-                            <span class='cijena-proizvoda' name='cijena'>
-                                <%= dataAll[1].cijena %> kn
-                            </span>
-                            <%}%>
-                            </p>
-                        </div>
-                    <!-- ! FORMA STARTA -->
-                    <%if(dataAll[1].stanje>0)  {%>
+                <%} else{%>
 
-                            <form action="/konzole" method="POST">
-                                <input name="id" type="hidden" value="<%= dataAll[1].artikl_ID%>">
-                                <button type="submit" class="addBasket uKosaru">U košaricu</button>
-                            </form>
-
-                            <%} else{%>
-
-                            <button type="submit" class="addBasket uKosaru stanje-nula">U
-                                košaricu</button>
-                            <%} %>
+                <button type="submit" class="addBasket uKosaru stanje-nula">u košaricu</button>
+                <%} %>
             </div>
             <!-- ------------------------------------------------- -->
             <div class="product-ns playstation">
@@ -182,55 +177,50 @@
                     <div class='akcijski-oznaka'>
                         <p class='akcijski-znak'><%=dataAll[2].postotak%>%</p>
                     </div><%}%>
-                                <a href="/konzole/33">
-                                    <img src="./Stranice_dodaci/Konzole_dodaci/Konzola33/playstation-4-500gb.jpg"
+                    <a href="/konzole/33">
+                        <img src="./Stranice_dodaci/Konzole_dodaci/Konzola33/playstation-4-500gb.jpg"
                                         alt="Lenovo ThinkBook 15 ">
-                                </a>
-                            </div>
+                     </a>
+                </div>
 
-                            <h1>
-                                <%= dataAll[2].nazivArtikla %>
-                    </h1>
+                <h1> <%= dataAll[2].nazivArtikla %> </h1>
+                <ul>
+                    <li>500GB hard drive</li>
+                    <li>AMD Radeon 1.84 TFLOPS</li>
+                    <li>WiFi</li>
+                    <li>HDR gaming</li>
+                    <li>VR kompatiibilno</li>
+                </ul>
+                <div class="cijena">
+                    <p> <% if(dataAll[2].akcija_akcija_ID!== null){%>
 
-                    <ul>
-                        <li>500GB hard drive</li>
-                        <li>AMD Radeon 1.84 TFLOPS</li>
-                        <li>WiFi</li>
-                        <li>HDR gaming</li>
-                        <li>VR kompatiibilno</li>
-                    </ul>
-                    <div class="cijena">
-                        <p> <% if(dataAll[2].akcija_akcija_ID!== null){%>
+                        <span class='cijena-akcija cijena-proizvoda' name='cijena'>
+                            <%= dataAll[2].akcijskaCijena.toFixed(2) %> kn
+                        </span>
+                        <span class='stara-cijena' name='cijena'>
+                            <%= dataAll[2].cijena %> kn
+                        </span>
+                    </p>
+                    <%}else {%>
+                    <p>
+                        <span class='cijena-proizvoda' name='cijena'>
+                            <%= dataAll[2].cijena %> kn
+                        </span>
+                        <%}%>
+                    </p>
+                </div>
+                <!-- ! FORMA STARTA -->
+                <%if(dataAll[2].stanje>0)  {%>
 
-                            <span class='cijena-akcija cijena-proizvoda' name='cijena'>
-                                <%= dataAll[2].akcijskaCijena.toFixed(2) %> kn
-                            </span>
-                            <span class='stara-cijena' name='cijena'>
-                                <%= dataAll[2].cijena %> kn
-                            </span>
-                        </p>
-                        <%}else {%>
-                        <p>
-                            <span class='cijena-proizvoda' name='cijena'>
-                                <%= dataAll[2].cijena %> kn
-                            </span>
-                            <%}%>
-                                </p>
-                            </div>
-                    <!-- ! FORMA STARTA -->
-                    <%if(dataAll[2].stanje>0)  {%>
+                <form action="/konzole" method="POST">
+                    <input name="id" type="hidden" value="<%= dataAll[2].artikl_ID%>">
+                    <button type="submit" class="addBasket uKosaru">u košaricu</button>
+                </form>
 
-                            <form action="/konzole" method="POST">
-                                <input name="id" type="hidden" value="<%= dataAll[2].artikl_ID%>">
-                                <button type="submit" class="addBasket uKosaru">U
-                                    košaricu</button>
-                            </form>
+                <%} else{%>
 
-                            <%} else{%>
-
-                            <button type="submit" class="addBasket uKosaru stanje-nula">U
-                                košaricu</button>
-                            <%} %>
+                <button type="submit" class="addBasket uKosaru stanje-nula">u košaricu</button>
+                <%} %>
             </div>
             <!-- ------------------------------------------------- -->
             <div class="product-ns playstation">
@@ -253,23 +243,23 @@
 
                 </ul>
                 <div class="cijena">
-                        <p> <% if(dataAll[3].akcija_akcija_ID!== null){%>
+                    <p> <% if(dataAll[3].akcija_akcija_ID!== null){%>
 
-                            <span class='cijena-akcija cijena-proizvoda' name='cijena'>
-                                <%= dataAll[3].akcijskaCijena.toFixed(2) %>kn
-                            </span>
-                            <span class='stara-cijena' name='cijena'>
-                                <%= dataAll[3].cijena %>kn
-                            </span>
-                        </p>
-                        <%}else {%>
-                        <p>
-                            <span class='cijena-proizvoda' name='cijena'>
-                                <%= dataAll[3].cijena %>kn
-                            </span>
-                            <%}%>
-                                    </p>
-                                </div>
+                        <span class='cijena-akcija cijena-proizvoda' name='cijena'>
+                            <%= dataAll[3].akcijskaCijena.toFixed(2) %>kn
+                        </span>
+                        <span class='stara-cijena' name='cijena'>
+                            <%= dataAll[3].cijena %>kn
+                        </span>
+                    </p>
+                    <%}else {%>
+                    <p>
+                        <span class='cijena-proizvoda' name='cijena'>
+                            <%= dataAll[3].cijena %>kn
+                        </span>
+                        <%}%>
+                    </p>
+                </div>
                    
                 <!-- ! FORMA STARTA -->
                    
@@ -277,11 +267,10 @@
 
                 <form action="/konzole" method="POST">
                     <input name="id" type="hidden" value="<%= dataAll[3].artikl_ID%>">
-                    <button type="submit" class="addBasket uKosaru">U
-                        košaricu</button>
+                    <button type="submit" class="addBasket uKosaru">u košaricu</button>
                 </form>
                 <%} else{%>
-                <button type="submit" class="addBasket uKosaru stanje-nula">U košaricu</button>
+                <button type="submit" class="addBasket uKosaru stanje-nula">u košaricu</button>
                 <%} %>
             </div>
             <!-- -------------------------------------------- -->

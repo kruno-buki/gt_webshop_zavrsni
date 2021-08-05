@@ -27,139 +27,118 @@
 
 <body>
     
-  <!-- ! pre-HEADER -->
-  <section class="pre-header">
-    <div class="logo">
-        <a href="/"><img src="/IMG/logo/Ikona_GameTech_ikona.png" alt="LOGO"></a>
-    </div>
+    <!-- ! pre-HEADER -->
+    <section class="pre-header">
+        <div class="logo">
+            <a href="/"><img src="/IMG/logo/Ikona_GameTech_ikona.png" alt="LOGO"></a>
+        </div>
 
-    <div id="basket">
-        <% if(kosarica.length<2) {%>
-        <a href="/kosarica"><img src="/IMG/logo/kolica-prazna.png" alt="KOŠARICA"></a>
-        <% }else{ %>
-        <a class="kosarica-stvar" href="/kosarica"><img src="/IMG/logo/kolica-prazna.png"  alt="KOŠARICA"></a>
-        <%}%>
-    </div>  
-</section>
-<!-- ! navigacija -->
- <%- include('../partials/navigacija.ejs')  %>
+        <div id="basket">
+            <% if(kosarica.length<2) {%>
+            <a href="/kosarica"><img src="/IMG/logo/kolica-prazna.png" alt="KOŠARICA"></a>
+            <% }else{ %>
+            <a class="kosarica-stvar" href="/kosarica"><img src="/IMG/logo/kolica-prazna.png" alt="KOŠARICA"></a>
+            <%}%>
+        </div>  
+    </section>
+    <!-- ! navigacija -->
+    <%- include('../partials/navigacija.ejs')  %>
 
-            <!-- ! HEADER - Carousel -->
-            <!-- <header>
+    <!-- !CONTENT  -->
+    <section class="all-content kontenjer-sekcija-artikala">
+        <section class="filter">
+            <div class="slidecontainer">
+                <input type="range" min="1000" max="20000" value="1" class="slider" id="myRange">
+                <p>vrijednost: <span id="range-cijena"></span></p>
+            </div>
 
-            </header> -->
+            <div class="check-filter ekran"> </div>
 
+            <div id="btnContainer">
+                <button class="btn active" onclick="prikaziSve()">prikaži sve</button>
+                <button class="btn" onclick="prikazi('samsung')">samsung</button>
+                <button class="btn" onclick="prikazi('asus')">asus</button>
+                <button class="btn" onclick="prikazi('alienware')">alienware</button>
+                <button class="btn" onclick="prikazi('benq')">benq</button>
+                <button class="btn" onclick="prikazi('dell')">dell</button>
+                <button class="btn" onclick="prikazi('philips')">philips</button>
+            </div>
 
-            <!-- !CONTENT  -->
-            <section class="all-content kontenjer-sekcija-artikala">
+            <div class="provjera ekran">
+                <h3>zaslon</h3>
+                <div>
+                    <label for="14_22incha_monitor">14"-22"</label>
+                    <input type="checkbox" id="14_22incha_monitor" name="monitor" class="chk">
 
-                <section class="filter">
+                    <label for="23_28incha_monitor">23"-28"</label>
+                    <input type="checkbox" id="23_28incha_monitor" name="monitor" class="chk">
 
-                    <div class="slidecontainer">
+                    <label for="32_incha_monitor">32"+</label>
+                    <input type="checkbox" id="32_incha_monitor" name="monitor" class="chk">
 
-                        <input type="range" min="1000" max="20000" value="1" class="slider" id="myRange">
-                        <p>vrijednost: <span id="range-cijena"></span></p>
-                    </div>
-
-                    <div class="check-filter ekran"> </div>
-
-                    <div id="btnContainer">
-                        <button class="btn active" onclick="prikaziSve()">prikaži sve</button>
-                        <button class="btn" onclick="prikazi('samsung')">samsung</button>
-                        <button class="btn" onclick="prikazi('asus')">asus</button>
-                        <button class="btn" onclick="prikazi('alienware')">alienware</button>
-                        <button class="btn" onclick="prikazi('benq')">benq</button>
-                        <button class="btn" onclick="prikazi('dell')">dell</button>
-                        <button class="btn" onclick="prikazi('philips')">philips</button>
-
-
-                    </div>
-
-
-
-                    <div class="provjera ekran">
-                        <h3>zaslon</h3>
-                        <div>
-
-                            <label for="14_22incha_monitor">14"-22"</label>
-                            <input type="checkbox" id="14_22incha_monitor" name="monitor" class="chk">
-
-                            <label for="23_28incha_monitor">23"-28"</label>
-                            <input type="checkbox" id="23_28incha_monitor" name="monitor" class="chk">
-
-                            <label for="32_incha_monitor">32"+</label>
-                            <input type="checkbox" id="32_incha_monitor" name="monitor" class="chk">
-
-                        </div>
-                    </div>
-                </section>
-                <!-- ! -------------------------- -->
-                <section class="sekcija-proizvoda">
-
-
-                    <section class="proizvodi-grid">
-                        <div class="product-ns samsung">
-                            <div>
-                                <% if(dataAll[0].akcija_akcija_ID!== null){%>
-                                <div class='akcijski-oznaka'>
-                                    <p class='akcijski-znak'><%=dataAll[0].postotak%>%</p>
-                                </div><%}%>
+                </div>
+            </div>
+        </section>
+        <!-- ! -------------------------- -->
+        <section class="sekcija-proizvoda">
+            <section class="proizvodi-grid">
+                <div class="product-ns samsung">
+                    <div>
+                        <% if(dataAll[0].akcija_akcija_ID!== null){%>
+                        <div class='akcijski-oznaka'>
+                            <p class='akcijski-znak'><%=dataAll[0].postotak%>%</p>
+                        </div><%}%>
                         <a href="/monitori/23">
                             <img src="./Stranice_dodaci\Monitori_dodaci\Monitor23\Samsung 44 Odyssey.jpg" alt="Lenovo ThinkBook 15 ">
                         </a>
-
                     </div>
-
                     
                     <h1><%= dataAll[0].nazivArtikla %></h1>
-                                <ul>
-                                    <li><span class="monitor32">5120x1440</span></li>
-                                    <li>AMD FreeSync Premium Pro</li>
-                                    <li>NVIDIA G-SYNC 240Hz, 1ms (GTG)</li>
-                                    <li>Zakrivljeni 1000R,HDR1000</li>
-                                    <li> 2xUSB 3.0</li>
+                    <ul>
+                        <li><span class="monitor32">5120x1440</span></li>
+                        <li>AMD FreeSync Premium Pro</li>
+                        <li>NVIDIA G-SYNC 240Hz, 1ms (GTG)</li>
+                        <li>Zakrivljeni 1000R,HDR1000</li>
+                        <li> 2xUSB 3.0</li>
+                    </ul>
 
-
-                                </ul>
-
-                                <div class="cijena">
-                                    <p><% if(dataAll[0].akcija_akcija_ID!== null){%>
-
-                                        <span class='cijena-akcija cijena-proizvoda' name='cijena'>
-                                            <%= dataAll[0].akcijskaCijena.toFixed(2) %> kn
-                                        </span>
-                                        <span class='stara-cijena' name='cijena'>
-                                            <%= dataAll[0].cijena %> kn
-                                        </span>
-                                    </p>
-                                    <%}else {%>
-                                    <p>
-                                        <span class='cijena-proizvoda' name='cijena'>
-                                            <%= dataAll[0].cijena %> kn
-                                        </span>
-                                        <%}%>
+                    <div class="cijena">
+                        <p><% if(dataAll[0].akcija_akcija_ID!== null){%>
+                            <span class='cijena-akcija cijena-proizvoda' name='cijena'>
+                                <%= dataAll[0].akcijskaCijena.toFixed(2) %> kn
+                            </span>
+                            <span class='stara-cijena' name='cijena'>
+                                <%= dataAll[0].cijena %> kn
+                            </span>
+                        </p>
+                        <%}else {%>
+                        <p>
+                            <span class='cijena-proizvoda' name='cijena'>
+                                <%= dataAll[0].cijena %> kn
+                            </span>
+                        <%}%>
                         </p>
                     </div>
 
                     <!-- ! FORMA STARTA -->
                     <%if(dataAll[0].stanje>0)  {%>
-                                        <form action="/monitori" method="POST">
-                                            <input name="id" type="hidden" value="<%= dataAll[0].artikl_ID%>">
-                                            <button type="submit" class="addBasket uKosaru">U košaricu</button>
-                                        </form>
+                                <form action="/monitori" method="POST">
+                                    <input name="id" type="hidden" value="<%= dataAll[0].artikl_ID%>">
+                                    <button type="submit" class="addBasket uKosaru">u košaricu</button>
+                                </form>
 
-                                        <%} else{%>
+                                <%} else{%>
 
-                                        <button type="submit" class="addBasket uKosaru">U košaricu</button>
-                                        <%} %>
-                                </div>
-                                <!-- -------------------------------------------------------- -->
-                                <div class="product-ns acer">
-                                    <div>
-                                        <% if(dataAll[1].akcija_akcija_ID!== null){%>
-                                        <div class='akcijski-oznaka'>
-                                            <p class='akcijski-znak'><%=dataAll[1].postotak%>%</p>
-                                        </div><%}%>
+                                <button type="submit" class="addBasket uKosaru">u košaricu</button>
+                                <%} %>
+                </div>
+                <!-- -------------------------------------------------------- -->
+                <div class="product-ns acer">
+                    <div>
+                        <% if(dataAll[1].akcija_akcija_ID!== null){%>
+                        <div class='akcijski-oznaka'>
+                            <p class='akcijski-znak'><%=dataAll[1].postotak%>%</p>
+                        </div><%}%>
                         <a href="/monitori/24">
                             <img src="./Stranice_dodaci/Monitori_dodaci/Monitor24/acer-predator.jpg" alt="Lenovo ThinkBook 15 ">
                         </a>
@@ -167,296 +146,266 @@
                     </div>
 
                     <h1><%= dataAll[1].nazivArtikla %></h1>
-                                        <ul>
-                                            <li><span class="monitor32">Size 32", 2560 x 1440@144 Hz</span></li>
-                                            <li>2K</li>
-                                            <li>NVidia G-Sync 144Hz (170Hz Overclock)</li>
-                                            <li>Zvučnici</li>
-                                            <li>5xSUB 3.0</li>
+                    <ul>
+                        <li><span class="monitor32">Size 32", 2560 x 1440@144 Hz</span></li>
+                        <li>2K</li>
+                        <li>NVidia G-Sync 144Hz (170Hz Overclock)</li>
+                        <li>Zvučnici</li>
+                        <li>5xSUB 3.0</li>
+                    </ul>
 
-                                        </ul>
+                    <div class="cijena">
+                        <p> <% if(dataAll[1].akcija_akcija_ID!== null){%>
 
-                                        <div class="cijena">
-                                            <p> <% if(dataAll[1].akcija_akcija_ID!== null){%>
-
-                                                <span class='cijena-akcija cijena-proizvoda' name='cijena'>
-                                                    <%= dataAll[1].akcijskaCijena.toFixed(2) %> kn
-                                                </span>
-                                                <span class='stara-cijena' name='cijena'>
-                                                    <%= dataAll[1].cijena %> kn
-                                                </span>
-                                            </p>
-                                            <%}else {%>
-                                            <p>
-                                                <span class='cijena-proizvoda' name='cijena'>
-                                                    <%= dataAll[1].cijena %> kn
-                                                </span>
-                                                <%}%>
+                            <span class='cijena-akcija cijena-proizvoda' name='cijena'>
+                                <%= dataAll[1].akcijskaCijena.toFixed(2) %> kn
+                            </span>
+                            <span class='stara-cijena' name='cijena'>
+                                <%= dataAll[1].cijena %> kn
+                            </span>
+                        </p>
+                        <%}else {%>
+                        <p>
+                            <span class='cijena-proizvoda' name='cijena'>
+                                <%= dataAll[1].cijena %> kn
+                            </span>
+                            <%}%>
                         </p>
                     </div>
 
-                     <!-- ! FORMA STARTA -->
-                     <%if(dataAll[1].stanje>0)  {%>
-                                                <form action="/monitori" method="POST">
-                                                    <input name="id" type="hidden" value="<%= dataAll[1].artikl_ID%>">
-                                                    <button type="submit" class="addBasket uKosaru">U košaricu</button>
-                                                </form>
+                    <!-- ! FORMA STARTA -->
+                    <%if(dataAll[1].stanje>0)  {%>
+                    <form action="/monitori" method="POST">
+                        <input name="id" type="hidden" value="<%= dataAll[1].artikl_ID%>">
+                        <button type="submit" class="addBasket uKosaru">u košaricu</button>
+                    </form>
 
-                                                <%} else{%>
+                    <%} else{%>
 
-                                                <button type="submit" class="addBasket uKosaru">U košaricu</button>
-                                                <%} %>
-                                        </div>
-                                        <!-- -------------------------------------------------------- -->
-                                        <div class="product-ns alienware">
-                                            <div>
-                                                <% if(dataAll[2].akcija_akcija_ID!== null){%>
-                                                <div class='akcijski-oznaka'>
-                                                    <p class='akcijski-znak'><%=dataAll[2].postotak%>%</p>
-                                                </div><%}%>
+                    <button type="submit" class="addBasket uKosaru">u košaricu</button>
+                    <%} %>
+                </div>
+                <!-- -------------------------------------------------------- -->
+                <div class="product-ns alienware">
+                    <div>
+                        <% if(dataAll[2].akcija_akcija_ID!== null){%>
+                        <div class='akcijski-oznaka'>
+                            <p class='akcijski-znak'><%=dataAll[2].postotak%>%</p>
+                        </div><%}%>
                         <a href="/monitori/25">
                             <img src="./Stranice_dodaci/Monitori_dodaci/Monitor25/monitor-alienware-25.jpg">
                         </a>
-
                     </div>
 
                     <h1><%= dataAll[2].nazivArtikla %></h1>
-                                                <ul>
-                                                    <li><span class="monitor23_28">1920x1080@360Hz</span></li>
-                                                    <li>IPS</li>
-                                                    <li>NVIDIA G-SYNC 360Hz</li>
-                                                    <li>2xHDMI</li>
-                                                    <li>Full HD </li>
-                                                    <li>2xHDM</li>
+                    <ul>
+                        <li><span class="monitor23_28">1920x1080@360Hz</span></li>
+                        <li>IPS</li>
+                        <li>NVIDIA G-SYNC 360Hz</li>
+                        <li>2xHDMI</li>
+                        <li>Full HD </li>
+                        <li>2xHDM</li>
+                    </ul>
 
-                                                </ul>
+                    <div class="cijena">
+                        <p> <% if(dataAll[2].akcija_akcija_ID!== null){%>
 
-                                                <div class="cijena">
-                                                    <p> <% if(dataAll[2].akcija_akcija_ID!== null){%>
-
-                                                        <span class='cijena-akcija cijena-proizvoda' name='cijena'>
-                                                            <%= dataAll[2].akcijskaCijena.toFixed(2) %> kn
-                                                        </span>
-                                                        <span class='stara-cijena' name='cijena'>
-                                                            <%= dataAll[2].cijena %> kn
-                                                        </span>
-                                                    </p>
-                                                    <%}else {%>
-                                                    <p>
-                                                        <span class='cijena-proizvoda' name='cijena'>
-                                                            <%= dataAll[2].cijena %> kn
-                                                        </span>
-                                                        <%}%>
+                            <span class='cijena-akcija cijena-proizvoda' name='cijena'>
+                                <%= dataAll[2].akcijskaCijena.toFixed(2) %> kn
+                            </span>
+                            <span class='stara-cijena' name='cijena'>
+                                <%= dataAll[2].cijena %> kn
+                            </span>
+                        </p>
+                        <%}else {%>
+                        <p>
+                            <span class='cijena-proizvoda' name='cijena'>
+                                <%= dataAll[2].cijena %> kn
+                            </span>
+                            <%}%>
                         </p>
                     </div>
 
                     <!-- ! FORMA STARTA -->
                     <%if(dataAll[2].stanje>0)  {%>
-                                                        <form action="/monitori" method="POST">
-                                                            <input name="id" type="hidden"
-                                                                value="<%= dataAll[2].artikl_ID%>">
-                                                            <button type="submit" class="addBasket uKosaru">U
-                                                                košaricu</button>
-                                                        </form>
+                    <form action="/monitori" method="POST">
+                        <input name="id" type="hidden" value="<%= dataAll[2].artikl_ID%>">
+                        <button type="submit" class="addBasket uKosaru">u košaricu</button>
+                    </form>
 
-                                                        <%} else{%>
+                    <%} else{%>
 
-                                                        <button type="submit" class="addBasket uKosaru">U
-                                                            košaricu</button>
-                                                        <%} %>
-                                                </div>
-                                                <!-- -------------------------------------------------------- -->
-                                                <div class="product-ns asus">
-                                                    <div>
-                                                        <% if(dataAll[3].akcija_akcija_ID!== null){%>
-                                                        <div class='akcijski-oznaka'>
-                                                            <p class='akcijski-znak'><%=dataAll[3].postotak%>%</p>
-                                                        </div><%}%>
+                    <button type="submit" class="addBasket uKosaru">u košaricu</button>
+                    <%} %>
+                </div>
+                <!-- -------------------------------------------------------- -->
+                <div class="product-ns asus">
+                    <div>
+                        <% if(dataAll[3].akcija_akcija_ID!== null){%>
+                        <div class='akcijski-oznaka'>
+                            <p class='akcijski-znak'><%=dataAll[3].postotak%>%</p>
+                        </div><%}%>
                         <a href="/monitori/26">
                             <img src="./Stranice_dodaci/Monitori_dodaci/Monitor26/monitor-asus-375.jpg ">
                         </a>
                     </div>
 
                     <h1><%= dataAll[3].nazivArtikla %></h1>
-                                                        <ul>
-                                                            <li><span class="monitor32"> 3840x1600 / 37,5 "</span></li>
-                                                            <li>Zakrivljen zaslon</li>
-                                                            <li>IPS</li>
-                                                            <li>Adaptive-Sync 75Hz</li>
-                                                            <li>2xUSB3.0/USB-C</li>
-                                                            <li>2xHDMI</li>
+                    <ul>
+                        <li><span class="monitor32"> 3840x1600 / 37,5 "</span></li>
+                        <li>Zakrivljen zaslon</li>
+                        <li>IPS</li>
+                        <li>Adaptive-Sync 75Hz</li>
+                        <li>2xUSB3.0/USB-C</li>
+                        <li>2xHDMI</li>
+                    </ul>
 
-                                                        </ul>
+                    <div class="cijena">
+                        <p> <% if(dataAll[3].akcija_akcija_ID!== null){%>
 
-                                                        <div class="cijena">
-                                                            <p> <% if(dataAll[3].akcija_akcija_ID!== null){%>
-
-                                                                <span class='cijena-akcija cijena-proizvoda'
-                                                                    name='cijena'>
-                                                                    <%= dataAll[3].akcijskaCijena.toFixed(2) %> kn
-                                                                </span>
-                                                                <span class='stara-cijena' name='cijena'>
-                                                                    <%= dataAll[3].cijena %> kn
-                                                                </span>
-                                                            </p>
-                                                            <%}else {%>
-                                                            <p>
-                                                                <span class='cijena-proizvoda' name='cijena'>
-                                                                    <%= dataAll[3].cijena %> kn
-                                                                </span>
-                                                                <%}%>
+                            <span class='cijena-akcija cijena-proizvoda' name='cijena'>
+                                <%= dataAll[3].akcijskaCijena.toFixed(2) %> kn
+                            </span>
+                            <span class='stara-cijena' name='cijena'>
+                                <%= dataAll[3].cijena %> kn
+                            </span>
+                        </p>
+                        <%}else {%>
+                        <p>
+                            <span class='cijena-proizvoda' name='cijena'>
+                                <%= dataAll[3].cijena %> kn
+                            </span>
+                            <%}%>
                         </p>
                     </div>
 
                     <!-- ! FORMA STARTA -->
                     <%if(dataAll[3].stanje>0)  {%>
-                                                                <form action="/monitori" method="POST">
-                                                                    <input name="id" type="hidden"
-                                                                        value="<%= dataAll[3].artikl_ID%>">
-                                                                    <button type="submit" class="addBasket uKosaru">U
-                                                                        košaricu</button>
-                                                                </form>
+                    <form action="/monitori" method="POST">
+                        <input name="id" type="hidden" value="<%= dataAll[3].artikl_ID%>">
+                        <button type="submit" class="addBasket uKosaru">u košaricu</button>
+                    </form>
 
-                                                                <%} else{%>
+                    <%} else{%>
 
-                                                                <button type="submit" class="addBasket uKosaru">U
-                                                                    košaricu</button>
-                                                                <%} %>
-                                                        </div>
-                                                        <!-- -------------------------------------------------------- -->
-                                                        <div class="product-ns benq">
-                                                            <div>
-                                                                <% if(dataAll[4].akcija_akcija_ID!== null){%>
-                                                                <div class='akcijski-oznaka'>
-                                                                    <p class='akcijski-znak'><%=dataAll[4].postotak%>%
-                                                                    </p>
-                                                                </div><%}%>
+                    <button type="submit" class="addBasket uKosaru">u košaricu</button>
+                    <%} %>
+                </div>
+                <!-- -------------------------------------------------------- -->
+                <div class="product-ns benq">
+                    <div>
+                        <% if(dataAll[4].akcija_akcija_ID!== null){%>
+                        <div class='akcijski-oznaka'>
+                            <p class='akcijski-znak'><%=dataAll[4].postotak%>%
+                            </p>
+                        </div><%}%>
                         <a href="/monitori/27">
                             <img src="./Stranice_dodaci/Monitori_dodaci/Monitor27/monitor-benq-315.jpg ">
                         </a>
-
                     </div>
 
                     <h1><%= dataAll[4].nazivArtikla %></h1>
-                                                                <ul>
-                                                                    <li><span class="monitor32">31,5"</span> </li>
-                                                                    <li>2560 x 1440</li>
-                                                                    <li>AMD FreeSyn</li>
+                    <ul>
+                        <li><span class="monitor32">31,5"</span> </li>
+                        <li>2560 x 1440</li>
+                        <li>AMD FreeSyn</li>
+                    </ul>
 
-                                                                </ul>
+                    <div class="cijena">
+                        <p> <% if(dataAll[4].akcija_akcija_ID!== null){%>
 
-                                                                <div class="cijena">
-                                                                    <p> <% if(dataAll[4].akcija_akcija_ID!== null){%>
-
-                                                                        <span class='cijena-akcija cijena-proizvoda'
-                                                                            name='cijena'>
-                                                                            <%= dataAll[4].akcijskaCijena.toFixed(2) %>
-                                                                            kn
-                                                                        </span>
-                                                                        <span class='stara-cijena' name='cijena'>
-                                                                            <%= dataAll[4].cijena %> kn
-                                                                        </span>
-                                                                    </p>
-                                                                    <%}else {%>
-                                                                    <p>
-                                                                        <span class='cijena-proizvoda' name='cijena'>
-                                                                            <%= dataAll[4].cijena %> kn
-                                                                        </span>
-                                                                        <%}%>
+                            <span class='cijena-akcija cijena-proizvoda' name='cijena'>
+                                <%= dataAll[4].akcijskaCijena.toFixed(2) %>
+                                kn
+                            </span>
+                            <span class='stara-cijena' name='cijena'>
+                                <%= dataAll[4].cijena %> kn
+                            </span>
+                        </p>
+                        <%}else {%>
+                        <p>
+                            <span class='cijena-proizvoda' name='cijena'>
+                                <%= dataAll[4].cijena %> kn
+                            </span>
+                            <%}%>
                         </p>
                     </div>
 
                   <!-- ! FORMA STARTA -->
                   <%if(dataAll[4].stanje>0)  {%>
-                                                                        <form action="/monitori" method="POST">
-                                                                            <input name="id" type="hidden"
-                                                                                value="<%= dataAll[4].artikl_ID%>">
-                                                                            <button type="submit"
-                                                                                class="addBasket uKosaru">U
-                                                                                košaricu</button>
-                                                                        </form>
+                  <form action="/monitori" method="POST">
+                      <input name="id" type="hidden" value="<%= dataAll[4].artikl_ID%>">
+                      <button type="submit" class="addBasket uKosaru">u košaricu</button>
+                  </form>
 
-                                                                        <%} else{%>
+                  <%} else{%>
 
-                                                                        <button type="submit"
-                                                                            class="addBasket uKosaru">U
-                                                                            košaricu</button>
-                                                                        <%} %>
-                                                                </div>
-                                                                <!-- -------------------------------------------------------- -->
-                                                                <div class="product-ns benq">
-                                                                    <div>
-                                                                        <% if(dataAll[5].akcija_akcija_ID!== null){%>
-                                                                        <div class='akcijski-oznaka'>
-                                                                            <p class='akcijski-znak'>
-                                                                                <%=dataAll[5].postotak%>%</p>
-                                                                        </div><%}%>
+                  <button type="submit" class="addBasket uKosaru">u košaricu</button>
+                  <%} %>
+                </div>
+                <!-- -------------------------------------------------------- -->
+                <div class="product-ns benq">
+                    <div>
+                        <% if(dataAll[5].akcija_akcija_ID!== null){%>
+                        <div class='akcijski-oznaka'>
+                            <p class='akcijski-znak'>
+                                <%=dataAll[5].postotak%>%</p>
+                        </div><%}%>
                         <a href="/monitori/28">
                             <img src="./Stranice_dodaci/Monitori_dodaci/Monitor28/monitor-benq-32.jpg" alt="Lenovo ThinkBook 15 ">
                         </a>
-
                     </div>
 
                     <h1><%= dataAll[5].nazivArtikla %></h1>
-                                                                        <ul>
-                                                                            <li><span class="monitor32">32"</span></li>
-                                                                            <li> 3840x2160</li>
-                                                                            <li>IPS</li>
-                                                                            <li>HDMI/USB</li>
-                                                                            <li>Zvučnici</li>
-                                                                            <li>4K</li>
+                    <ul>
+                        <li><span class="monitor32">32"</span></li>
+                        <li> 3840x2160</li>
+                        <li>IPS</li>
+                        <li>HDMI/USB</li>
+                        <li>Zvučnici</li>
+                        <li>4K</li>
+                    </ul>
 
-                                                                        </ul>
+                    <div class="cijena">
+                        <p> <% if(dataAll[5].akcija_akcija_ID!== null){%>
 
-                                                                        <div class="cijena">
-                                                                            <p> <% if(dataAll[5].akcija_akcija_ID!== null){%>
-
-                                                                                <span
-                                                                                    class='cijena-akcija cijena-proizvoda'
-                                                                                    name='cijena'>
-                                                                                    <%= dataAll[5].akcijskaCijena.toFixed(2) %>
-                                                                                    kn
-                                                                                </span>
-                                                                                <span class='stara-cijena'
-                                                                                    name='cijena'>
-                                                                                    <%= dataAll[5].cijena %> kn
-                                                                                </span>
-                                                                            </p>
-                                                                            <%}else {%>
-                                                                            <p>
-                                                                                <span class='cijena-proizvoda'
-                                                                                    name='cijena'>
-                                                                                    <%= dataAll[5].cijena %> kn
-                                                                                </span>
-                                                                                <%}%>
+                            <span class='cijena-akcija cijena-proizvoda' name='cijena'>
+                                <%= dataAll[5].akcijskaCijena.toFixed(2) %>
+                                kn
+                            </span>
+                            <span class='stara-cijena' name='cijena'>
+                                <%= dataAll[5].cijena %> kn
+                            </span>
+                        </p>
+                        <%}else {%>
+                        <p>
+                            <span class='cijena-proizvoda' name='cijena'>
+                                <%= dataAll[5].cijena %> kn
+                            </span>
+                            <%}%>
                         </p>
                     </div>
 
                   <!-- ! FORMA STARTA -->
                   <%if(dataAll[5].stanje>0)  {%>
-                                                                                <form action="/monitori" method="POST">
-                                                                                    <input name="id" type="hidden"
-                                                                                        value="<%= dataAll[5].artikl_ID%>">
-                                                                                    <button type="submit"
-                                                                                        class="addBasket uKosaru">U
-                                                                                        košaricu</button>
-                                                                                </form>
+                  <form action="/monitori" method="POST">
+                      <input name="id" type="hidden" value="<%= dataAll[5].artikl_ID%>">
+                      <button type="submit" class="addBasket uKosaru">u košaricu</button>
+                  </form>
 
-                                                                                <%} else{%>
+                  <%} else{%>
 
-                                                                                <button type="submit"
-                                                                                    class="addBasket uKosaru">U
-                                                                                    košaricu</button>
-                                                                                <%} %>
-                                                                        </div>
-                                                                        <!-- -------------------------------------------------------- -->
-                                                                        <div class="product-ns dell">
-                                                                            <div>
-                                                                                <% if(dataAll[6].akcija_akcija_ID!== null){%>
-                                                                                <div class='akcijski-oznaka'>
-                                                                                    <p class='akcijski-znak'>
-                                                                                        <%=dataAll[6].postotak%>%</p>
-                                                                                </div><%}%>
+                  <button type="submit" class="addBasket uKosaru">u košaricu</button>
+                  <%} %>
+                </div>
+                <!-- -------------------------------------------------------- -->
+                <div class="product-ns dell">
+                    <div>
+                        <% if(dataAll[6].akcija_akcija_ID!== null){%>
+                        <div class='akcijski-oznaka'>
+                            <p class='akcijski-znak'>
+                                <%=dataAll[6].postotak%>%</p>
+                        </div><%}%>
                         <a href="/monitori/29">
                             <img src="./Stranice_dodaci/Monitori_dodaci/Monitor29/monitor-dell-32.jpg " alt="Lenovo ThinkBook 15 ">
                         </a>
@@ -464,143 +413,110 @@
                     </div>
 
                     <h1><%= dataAll[6].nazivArtikla %></h1>
-                                                                                <ul>
+                    <ul>
+                        <li><span class="monitor32">31.5"</span>
+                        </li>
+                        <li>2560 x 1440 @60Hz</li>
+                        <li>IPS</li>
+                        <li>HDMI</li>
+                        <li>HDMI/ DP/USB-C/2xUSB 3.2 Gen 1
+                        </li>
+                        <li>2K</li>
+                    </ul>
 
-                                                                                    <li><span
-                                                                                            class="monitor32">31.5"</span>
-                                                                                    </li>
-                                                                                    <li>2560 x 1440 @60Hz</li>
-                                                                                    <li>IPS</li>
-                                                                                    <li>HDMI</li>
-                                                                                    <li>HDMI/ DP/USB-C/2xUSB 3.2 Gen 1
-                                                                                    </li>
-                                                                                    <li>2K</li>
+                    <div class="cijena">
+                        <p> <% if(dataAll[6].akcija_akcija_ID!== null){%>
 
-                                                                                </ul>
-
-                                                                                <div class="cijena">
-                                                                                    <p> <% if(dataAll[6].akcija_akcija_ID!== null){%>
-
-                                                                                        <span
-                                                                                            class='cijena-akcija cijena-proizvoda'
-                                                                                            name='cijena'>
-                                                                                            <%= dataAll[6].akcijskaCijena.toFixed(2)%>
-                                                                                            kn
-                                                                                        </span>
-                                                                                        <span class='stara-cijena'
-                                                                                            name='cijena'>
-                                                                                            <%= dataAll[6].cijena %> kn
-                                                                                        </span>
-                                                                                    </p>
-                                                                                    <%}else {%>
-                                                                                    <p>
-                                                                                        <span class='cijena-proizvoda'
-                                                                                            name='cijena'>
-                                                                                            <%= dataAll[6].cijena %> kn
-                                                                                        </span>
-                                                                                        <%}%>
+                            <span class='cijena-akcija cijena-proizvoda' name='cijena'>
+                                <%= dataAll[6].akcijskaCijena.toFixed(2)%>
+                                kn
+                            </span>
+                            <span class='stara-cijena' name='cijena'>
+                                <%= dataAll[6].cijena %> kn
+                            </span>
+                        </p>
+                        <%}else {%>
+                        <p>
+                            <span class='cijena-proizvoda' name='cijena'>
+                                <%= dataAll[6].cijena %> kn
+                            </span>
+                            <%}%>
                         </p>
                     </div>
 
                    <!-- ! FORMA STARTA -->
                    <%if(dataAll[6].stanje>0)  {%>
-                                                                                        <form action="/monitori"
-                                                                                            method="POST">
-                                                                                            <input name="id"
-                                                                                                type="hidden"
-                                                                                                value="<%= dataAll[6].artikl_ID%>">
-                                                                                            <button type="submit"
-                                                                                                class="addBasket uKosaru">U
-                                                                                                košaricu</button>
-                                                                                        </form>
+                   <form action="/monitori" method="POST">
+                       <input name="id" type="hidden" value="<%= dataAll[6].artikl_ID%>">
+                       <button type="submit" class="addBasket uKosaru">u košaricu</button>
+                   </form>
 
-                                                                                        <%} else{%>
+                   <%} else{%>
 
-                                                                                        <button type="submit"
-                                                                                            class="addBasket uKosaru">U
-                                                                                            košaricu</button>
-                                                                                        <%} %>
-                                                                                </div>
-                                                                                <!-- -------------------------------------------------------- -->
-                                                                                <div class="product-ns philips">
-                                                                                    <div>
-                                                                                        <% if(dataAll[7].akcija_akcija_ID!== null){%>
-                                                                                        <div class='akcijski-oznaka'>
-                                                                                            <p class='akcijski-znak'>
-                                                                                                <%=dataAll[7].postotak%>%
-                                                                                            </p>
-                                                                                        </div><%}%>
+                   <button type="submit" class="addBasket uKosaru">u košaricu</button>
+                   <%} %>
+                </div>
+                <!-- -------------------------------------------------------- -->
+                <div class="product-ns philips">
+                    <div>
+                        <% if(dataAll[7].akcija_akcija_ID!== null){%>
+                        <div class='akcijski-oznaka'>
+                            <p class='akcijski-znak'>
+                                <%=dataAll[7].postotak%>%
+                            </p>
+                        </div><%}%>
                         <a href="/monitori/30">
                             <img src="./Stranice_dodaci/Monitori_dodaci/Monitor30/monitor-philips-27.jpg" alt="Lenovo ThinkBook 15 ">
                         </a>
-
                     </div>
 
                     <h1><%= dataAll[7].nazivArtikla %></h1>
-                                                                                        <ul>
-                                                                                            <li><span
-                                                                                                    class="monitor23_28">27''/
-                                                                                                    68,5 cm IPS</span>
-                                                                                            </li>
-                                                                                            <li>2560 x 1440</li>
-                                                                                            <li> 3xUSB 3.1/USB-C</li>
-                                                                                            <li>Zvučnici</li>
-                                                                                            <li>2K</li>
+                    <ul>
+                        <li><span class="monitor23_28">27'' IPS</span> </li>
+                        <li>2560 x 1440</li>
+                        <li> 3xUSB 3.1/USB-C</li>
+                        <li>Zvučnici</li>
+                        <li>2K</li>
+                    </ul>
 
-                                                                                        </ul>
+                    <div class="cijena">
+                        <p> <% if(dataAll[7].akcija_akcija_ID!== null){%>
 
-                                                                                        <div class="cijena">
-                                                                                            <p> <% if(dataAll[7].akcija_akcija_ID!== null){%>
-
-                                                                                                <span
-                                                                                                    class='cijena-akcija cijena-proizvoda'
-                                                                                                    name='cijena'>
-                                                                                                    <%= dataAll[7].akcijskaCijena.toFixed(2) %>
-                                                                                                    kn
-                                                                                                </span>
-                                                                                                <span
-                                                                                                    class='stara-cijena'
-                                                                                                    name='cijena'>
-                                                                                                    <%= dataAll[7].cijena %>
-                                                                                                    kn
-                                                                                                </span>
-                                                                                            </p>
-                                                                                            <%}else {%>
-                                                                                            <p>
-                                                                                                <span
-                                                                                                    class='cijena-proizvoda'
-                                                                                                    name='cijena'>
-                                                                                                    <%= dataAll[7].cijena %>
-                                                                                                    kn
-                                                                                                </span>
-                                                                                                <%}%>
+                            <span class='cijena-akcija cijena-proizvoda' name='cijena'>
+                                <%= dataAll[7].akcijskaCijena.toFixed(2) %>
+                                kn
+                            </span>
+                            <span class='stara-cijena' name='cijena'>
+                                <%= dataAll[7].cijena %>
+                                kn
+                            </span>
+                        </p>
+                        <%}else {%>
+                        <p>
+                            <span class='cijena-proizvoda' name='cijena'>
+                                <%= dataAll[7].cijena %>
+                                kn
+                            </span>
+                            <%}%>
                         </p>
                     </div>
 
                   <!-- ! FORMA STARTA -->
                   <%if(dataAll[7].stanje>0)  {%>
-                                                                                                <form action="/monitori"
-                                                                                                    method="POST">
-                                                                                                    <input name="id"
-                                                                                                        type="hidden"
-                                                                                                        value="<%= dataAll[7].artikl_ID%>">
-                                                                                                    <button
-                                                                                                        type="submit"
-                                                                                                        class="addBasket uKosaru">U
-                                                                                                        košaricu</button>
-                                                                                                </form>
+                  <form action="/monitori" method="POST">
+                      <input name="id" type="hidden" value="<%= dataAll[7].artikl_ID%>">
+                      <button type="submit" class="addBasket uKosaru">u košaricu</button>
+                  </form>
 
-                                                                                                <%} else{%>
+                  <%} else{%>
 
-                                                                                                <button type="submit"
-                                                                                                    class="addBasket uKosaru">U
-                                                                                                    košaricu</button>
-                                                                                                <%} %>
-                                                                                        </div>
-                                                                                        <!-- -------------------------------------------------------- -->
-                    </section>
-                </section>
+                  <button type="submit" class="addBasket uKosaru">u košaricu</button>
+                  <%} %>
+                        </div>
+            <!-- -------------------------------------------------------- -->
             </section>
+        </section>
+    </section>
             <%- include('../partials/povratnaStrelica.ejs')%>
             <!-- ! FOOTER -->
             <%- include('../partials/footer.ejs')%>
