@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GT - Order view</title>
+
+    <link rel="shortcut icon" href="IMG/logo/GT_favicon.ico">
+
+    <link rel="stylesheet" href="FrontEnd_stilovi/common.css">
+    <link rel="stylesheet" href="Stranice_dodaci/Kosarica_dodaci/style_checkout.css">
+    <script src="FrontEnd_funkcionalnosti/common.js" defer></script>
+    
+    <!-- <script src="Stranice_dodaci/Kosarica_dodaci/script_checkout.js" defer></script> -->
+   
+     <!-- gsap -->
+    <script src="Animacije_gsap/commonAnimacija.js" defer></script>
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/gsap.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/CSSRulePlugin.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/ScrollToPlugin.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+<!-- ! pre-HEADER -->
+ <!-- ! pre-HEADER -->
+ <section class="pre-header">
+    <div class="logo">
+        <a href="/"><img src="/IMG/logo/Ikona_GameTech_ikona.png" alt="LOGO"></a>
+    </div>
+
+    <div id="basket">
+        <% if(data.length<2) {%>
+        <a href="/kosarica"><img src="/IMG/logo/kolica-prazna.png" alt="KOŠARICA"></a>
+        <% }else{ %>
+        <a class="kosarica-stvar" href="/kosarica"><img src="/IMG/logo/kolica-prazna.png"  alt="KOŠARICA"></a>
+        <%}%>
+    </div>  
+</section>
+
+<!-- ! navigacija -->
+    <%- include('../partials/navigacija.ejs')  %>
+
+    <!-- ! HEADER - Carousel -->
+    <!-- <header> </header> -->
+
+    <!-- !CONTENT  -->
+
+    <section class="all-content kontenjer-sekcija-basket view">
+        <table id="myTable">
+            <caption>popis za kupovinu</caption>
+            <thead>
+                <tr id="headersTable" class="table-header">
+                    <th scope='col'>#</th>
+                    <th scope='col'>proizvod</th>
+                    <th scope='col'>kolicina</th>
+                    <th scope='col'>oduzmi</th>
+                    <th scope='col'>dodaj</th>
+                    <th scope='col'>obrisi</th>
+                    <th scope='col'>cijena</th>
+                </tr>
+
+            </thead>
+            <tbody>
+                <% if (data[1] === null || data.length <2){ %>
+                <tr>
+                    <td colspan="7">košarica je prazna <span>😅</span></td>
+                </tr>
+                <%} else {%>
+                <% for(let i = 1; i < data.length; i++){%>
+                  <%let product = data[i];%>
+                
+                <tr>
+                    <td scope="row"> <%= i%> </td>
+                    <td> <%= product.nazivArtikla%> </td>
+                    <td> <%= product.kolicina%> </td>
+                    <td>
+                    <%if(product.kolicina<=1){%>
+                        <button class="btn btn-oduzmi">oduzmi</button>
+                    <%} else{%>
+                        <form action="/kosarica/oduzimanje" method="POST">
+                            <input type="hidden" name="prodId" value="<%= product.artikl_ID%>">
+                            <button type="submit" class="btn btn-oduzmi">oduzmi</button>
+                        </form>
+                    <%}%>                        
+                    </td>
+
+                    <td>
+                        
+                        <form action="/kosarica/dodavanje" method="POST">
+                            <input type="hidden" name="prodId" value="<%= product.artikl_ID%>">
+                            <button type="submit" class="btn btn-dodaj">dodaj</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form action="/kosarica/brisanje" method="POST">
+                            <input type="hidden" name="prodId" value="<%= product.artikl_ID%>">
+                            <button type="submit" class="btn btn-brisanje">obrisi</button>
+                        </form>
+                    </td>
+                    <td> <%= (product.kolicina * (Number(product.cijena))).toFixed(2) %> </td>
+
+                </tr>
+                <%}%>  
+                <tr class="tbl-cijena">
+                    <td colspan="2">ukupna cijena: </td>
+                    <td colspan="5"> <%= data[0].total.toFixed(2)%> </td>
+                </tr>
+
+                <%}%>
+
+            </tbody>
+
+        </table>
+        <%if((data.length)>1) {%>
+        <div class="kontenjer-idi-dalje">
+            <form action="/naplata/1" method="get">
+                <input type="submit" class="btn idi-dalje" value="nastavi kupovinu">
+            </form>
+        <%}%>
+        
+        </div>
+        
+    </section>
+    <div id="povratna-strelica" hidden></div>
+
+    <!-- ! FOOTER -->
+    <%- include('../partials/footer.ejs')%>
+</body>
+
+
+</html>

@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GT-Akcije</title>
+
+    <link rel="shortcut icon" href="IMG/logo/GT_favicon.ico">
+    <link rel="stylesheet" href="FrontEnd_stilovi/common.css">
+    <link rel="stylesheet" href="FrontEnd_stilovi/common_proizvodi.css">
+
+    <link rel="stylesheet" href="/FrontEnd_stilovi/akcija.css">
+    <script src="FrontEnd_funkcionalnosti/common.js" defer></script>
+
+    <!-- gsap -->
+    <script src="Animacije_gsap/commonAnimacija.js" defer></script>
+    <script src="Animacije_gsap/povratnaStrelicaAnimacija.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/CSSRulePlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+    <!-- ! pre-HEADER -->
+    <section class="pre-header">
+        <div class="logo">
+            <a href="/"><img src="/IMG/logo/Ikona_GameTech_ikona.png" alt="LOGO"></a>
+        </div>
+
+        <div id="basket">
+            <% if(kosarica.length<2) {%>
+            <a href="/kosarica"><img src="/IMG/logo/kolica-prazna.png" alt="KOŠARICA"></a>
+            <% }else{ %>
+            <a class="kosarica-stvar" href="/kosarica"><img src="/IMG/logo/kolica-prazna.png"  alt="KOŠARICA"></a>
+            <%}%>
+        </div>  
+    </section>
+    
+    <!-- ! navigacija -->
+    <%- include('../partials/navigacija.ejs')  %>
+    <!-- ! HEADER - Carousel -->
+    <!-- <header> </header> -->
+    <!-- !CONTENT  -->
+    <section class="proizvodi-grid">
+        <div class="product-s lenovo">
+            <div>
+                <% if(dataAll[2].akcija_akcija_ID!== null){%>
+                <div class='akcijski-oznaka'>
+                    <p class='akcijski-znak'><%=dataAll[2].postotak%>%</p>
+                </div><%}%>
+                    <a href="/laptopi/3">
+                        <img src="./Stranice_dodaci/Laptopi_dodaci/Laptop3/Lenovo IdeaPad Gaming 3_1.jpg"
+                            alt="Lenovo IdeaPad Gaming 3">
+                    </a>
+                </div>
+        
+            <h1><%= dataAll[2].nazivArtikla %></h1>
+                <ul>
+                    <li>
+                        <span class="procesor-ime amd ekran15">AMD Ryzen 7 4800H 2.90GHz</span>
+                    </li>
+                    <li>
+                        <span class="memorija16">16 GB</span>
+                    </li>
+                    <li>
+                        <span class="disk512">512 GB SSD</span>
+                    </li>
+                    <li>
+                        <span class="grafička-kartica zasebna">nVidia GeForce GTX 1650 Ti 4GB</span>
+                    </li>
+                    <li>Windows</li>
+
+                </ul>
+
+                <div class="cijena">
+                    <p><% if(dataAll[2].akcija_akcija_ID!== null){%>
+
+                        <span class="cijena-akcija" name='cijena'>
+                            <%= dataAll[2].akcijskaCijena.toFixed(2)%> kn
+                        </span>
+                        <span class='stara-cijena' name='cijena'>
+                            <%= dataAll[2].cijena %> kn
+                        </span>
+                    </p>
+                    <%}else {%>
+                    <p>
+                        <span class='cijena-proizvoda' name='cijena'>
+                            <%= dataAll[2].cijena %> kn
+                        </span>
+                        <%}%>
+                    </p>
+                </div>
+
+                    <!-- ! FORMA STARTA -->
+                    <%if(dataAll[2].stanje>0)  {%>
+                        <form action="/akcije" method="POST">
+                            <input name="id" type="hidden" value="<%= dataAll[2].artikl_ID%>">
+                            <button type="submit" class="addBasket uKosaru">U košaricu</button>
+                        </form>
+                        <%} else{%>
+                        <button type="submit" class="addBasket uKosaru">U košaricu</button>
+                        <%} %>
+        </div>
+
+        <div class="product-s dell">
+            <div>
+                <% if(dataAll[6].akcija_akcija_ID!== null){%>
+                <div class='akcijski-oznaka'>
+                    <p class='akcijski-znak'><%=dataAll[6].postotak%>%</p>
+                </div>
+                <%}%>
+                    <a href="/laptopi/7">
+                        <img src="./Stranice_dodaci/Laptopi_dodaci/Laptop7/Dell Inspiron_1.jpg" alt="Dell Inspirion 3505">
+                    </a>
+            </div>
+
+            <h1><%= dataAll[6].nazivArtikla %></h1>
+            <ul>
+                <li><span class="procesor-ime amd ekran15">AMD Ryzen 5 3500U 2.10GHz</span></li>
+                <li><span class="memorija8">8GB</span></li>
+                <li><span class="disk512">512GB SSD</span></li>
+                <li> <span class="grafička-kartica integrirana">AMD Radeon Vega 8</span></li>
+                <li>Free Dos</li>
+            </ul>
+            <div class="cijena">
+                <p> <% if(dataAll[6].akcija_akcija_ID!== null){%>
+                    <span class='cijena-akcija' name='cijena'>
+                        <%= dataAll[6].akcijskaCijena.toFixed(2) %> kn
+                    </span>
+                    <span class='stara-cijena' name='cijena'>
+                        <%= dataAll[6].cijena %> kn
+                    </span>
+                </p>
+                <%}else {%>
+                <p>
+                    <span class='cijena-proizvoda' name='cijena'>
+                        <%= dataAll[6].cijena %> kn
+                    </span>
+                    <%}%>
+                </p>
+            </div>
+
+            <!-- ! FORMA STARTA -->
+            <%if(dataAll[6].stanje>0)  {%>
+            <form action="/akcije" method="POST">
+                <input name="id" type="hidden" value="<%= dataAll[6].artikl_ID%>">
+                <button type="submit" class="addBasket uKosaru">U košaricu</button>
+            </form>
+            <%} else{%>
+            <button type="submit" class="addBasket uKosaru">U košaricu</button>
+            <%} %>
+        </div>
+        <!-- -------------------------------------------------------- -->
+        <div class="product-s acer">
+            <div>
+                <% if(dataAll[9].akcija_akcija_ID!== null){%>
+                <div class='akcijski-oznaka'>
+                    <p class='akcijski-znak'><%=dataAll[9].postotak%>%</p>
+                </div>
+                <%}%>
+                    <a href="/laptopi/10">
+                        <img src="./Stranice_dodaci/Laptopi_dodaci/Laptop10/Acer Gaming Nitro 5_1.jpg" alt="Notebook Acer Gaming Nitro 5">
+                    </a>
+            </div>
+            <h1><%= dataAll[9].nazivArtikla %></h1>
+            <ul>
+                <li><span class="procesor-ime intel ekran17">Intel Core i5 11300H</span> </li>
+                <li><span class="memorija8">8GB</span></li>
+                <li><span class="disk512">512GB SSD</span></li>
+                <li><span class="grafička-kartica zasebna">NVIDIA GTX1650 4GB</span></li>
+                <li>Free DOS</li>
+            </ul>
+            <div class="cijena">
+                <p><% if(dataAll[9].akcija_akcija_ID!== null){%>
+                    <span class='cijena-akcija' name='cijena'>
+                        <%= dataAll[9].akcijskaCijena.toFixed(2) %> kn
+                    </span>
+                    <span class='stara-cijena' name='cijena'>
+                        <%= dataAll[9].cijena %> kn
+                    </span>
+                </p>
+                <%}else {%>
+                <p>
+                    <span class='cijena-proizvoda' name='cijena'>
+                        <%= dataAll[9].cijena %> kn
+                    </span>
+                    <%}%>
+                </p>
+            </div>
+
+            <!-- ! FORMA STARTA -->
+            <%if(dataAll[9].stanje>0)  {%>
+            <form action="/akcije" method="POST">
+                <input name="id" type="hidden" value="<%= dataAll[9].artikl_ID%>">
+                <button type="submit" class="addBasket uKosaru">U košaricu</button>
+            </form>
+            <%} else{%>
+            <button type="submit" class="addBasket uKosaru">U košaricu</button>
+            <%} %>
+        </div>
+        <!-- -------------------------------------------------------- -->
+        <div class="product-s xiaomi">
+            <div>
+                <% if(dataAll[15].akcija_akcija_ID!== null){%>
+                <div class='akcijski-oznaka'>
+                    <p class='akcijski-znak'><%=dataAll[15].postotak%>%</p>
+                </div>
+                <%}%>
+                <a href="/mobiteli/16">
+                    <img src="./Stranice_dodaci/Mobiteli_dodaci/Mobitel16/mobitel-xiaomi-redmi-note-9-pro.jpg"
+                        alt="Xiaomi Redmi Note 9 Pro">
+                </a>
+            </div>
+            <h1><%= dataAll[15].nazivArtikla %></h1>
+            <ul>
+                <li>6.67" 1080 x 2400 px</li>
+                <li>Octa-Core 2.3GHz</li>
+                <li><span class="memorija6_m">6GB RAM</span></li>
+                <li><span class="disk128gb-m">128GB Memorija</span></li>
+                <li>5020 mAh</li>
+
+            </ul>
+            <div class="cijena">
+                <p>
+                    <% if(dataAll[15].akcija_akcija_ID!== null){%>
+
+                    <span class='cijena-akcija' name='cijena'>
+                        <%= dataAll[15].akcijskaCijena.toFixed(2) %> kn
+                    </span>
+                    <span class='stara-cijena' name='cijena'>
+                        <%= dataAll[15].cijena %> kn
+                    </span>
+                </p>
+                <%}else {%>
+                <p>
+                    <span class='cijena-proizvoda' name='cijena'>
+                        <%= dataAll[15].cijena %> kn
+                    </span>
+                    <%}%>
+                    </p>
+            </div>
+
+            <!-- ! FORMA STARTA -->
+            <%if(dataAll[15].stanje>0)  {%>
+
+            <form action="/akcije" method="POST">
+                <input name="id" type="hidden" value="<%= dataAll[15].artikl_ID%>">
+                <button type="submit" class="addBasket uKosaru">U košaricu</button>
+            </form>
+            <%} else{%>
+            <button type="submit" class="addBasket uKosaru">U košaricu</button>
+            <%} %>
+        </div>
+        <!-- -------------------------------------------------------- -->
+        <div class="product-s samsung">
+            <div>
+                <% if(dataAll[22].akcija_akcija_ID!== null){%>
+                <div class='akcijski-oznaka'>
+                    <p class='akcijski-znak'><%=dataAll[22].postotak%>%</p>
+                </div>
+                <%}%>
+                <a href="/monitori/23">
+                    <img src="./Stranice_dodaci\Monitori_dodaci\Monitor23\Samsung 44 Odyssey.jpg"
+                        alt="Lenovo ThinkBook 15 ">
+                </a>
+            </div>
+            <h1><%= dataAll[22].nazivArtikla %></h1>
+            <ul>
+                <li><span class="monitor32">5120x1440</span></li>
+                <li>AMD FreeSync Premium Pro</li>
+                <li>NVIDIA G-SYNC 240Hz, 1ms (GTG)</li>
+                <li>Zakrivljeni 1000R,HDR1000</li>
+                <li> 2xUSB 3.0</li>
+            </ul>
+            <div class="cijena">
+                <p><% if(dataAll[22].akcija_akcija_ID!== null){%>
+                    <span class='cijena-akcija' name='cijena'>
+                        <%= dataAll[22].akcijskaCijena.toFixed(2) %> kn
+                    </span>
+                    <span class='stara-cijena' name='cijena'>
+                        <%= dataAll[22].cijena %> kn
+                    </span>
+                </p>
+                <%}else {%>
+                <p>
+                    <span class='cijena-proizvoda' name='cijena'>
+                        <%= dataAll[22].cijena %> kn
+                    </span>
+                    <%}%>
+                                                    </p>
+            </div>
+            <!-- ! FORMA STARTA -->
+            <%if(dataAll[22].stanje>0)  {%>
+            <form action="/akcije" method="POST">
+                <input name="id" type="hidden" value="<%= dataAll[22].artikl_ID%>">
+                <button type="submit" class="addBasket uKosaru">U
+                    košaricu</button>
+            </form>
+
+            <%} else{%>
+
+            <button type="submit" class="addBasket uKosaru">U
+                košaricu</button>
+            <%} %>
+        </div>
+        <!-- -------------------------------------------------------- -->
+        <div class="product-s philips">
+            <div>
+                <% if(dataAll[29].akcija_akcija_ID!== null){%>
+                <div class='akcijski-oznaka'>
+                    <p class='akcijski-znak'><%=dataAll[29].postotak%>%
+                    </p>
+                </div>
+                <%}%>
+                <a href="/monitori/30">
+                    <img src="./Stranice_dodaci/Monitori_dodaci/Monitor30/monitor-philips-27.jpg" alt="Lenovo ThinkBook 15 ">
+                </a>
+            </div>
+            <h1><%= dataAll[29].nazivArtikla %></h1>
+            <ul>
+                <li><span class="monitor23_28">27''/ 68,5 cm IPS</span></li>
+                <li>2560 x 1440</li>
+                <li> 3xUSB 3.1/USB-C</li>
+                <li>Zvučnici</li>
+                <li>2K</li>
+            </ul>
+            <div class="cijena">
+                <p><% if(dataAll[29].akcija_akcija_ID!== null){%>
+                    <span class='cijena-akcija' name='cijena'>
+                        <%= dataAll[29].akcijskaCijena.toFixed(2) %>
+                        kn
+                    </span>
+                    <span class='stara-cijena' name='cijena'>
+                        <%= dataAll[29].cijena %> kn
+                    </span>
+                </p>
+                <%}else {%>
+                <p>
+                    <span class='cijena-proizvoda' name='cijena'>
+                        <%= dataAll[29].cijena %> kn
+                    </span>
+                    <%}%>
+                </p>
+            </div>
+
+            <!-- ! FORMA STARTA -->
+            <%if(dataAll[29].stanje>0)  {%>
+            <form action="/akcije" method="POST">
+                <input name="id" type="hidden" value="<%= dataAll[29].artikl_ID%>">
+                <button type="submit" class="addBasket uKosaru">U
+                    košaricu</button>
+            </form>
+            <%} else{%>
+            <button type="submit" class="addBasket uKosaru">U
+                košaricu</button>
+            <%} %>
+        </div>
+        <!-- -------------------------------------------------------- -->
+        <div class="product-s nitendo">
+            <div>
+                <% if(dataAll[30].akcija_akcija_ID!== null){%>
+                <div class='akcijski-oznaka'>
+                    <p class='akcijski-znak'>
+                        <%=dataAll[30].postotak%>%
+                    </p>
+                </div>
+                <%}%>
+                <a href="/konzole/31">
+                    <img src="./Stranice_dodaci/Konzole_dodaci/Konzola31/nintendo-switch-mario-red-blue.jpg" alt="Lenovo ThinkBook 15 ">
+                </a>
+            </div>
+            <h1><%= dataAll[30].nazivArtikla %></h1>
+            <ul>
+                <li> 6.5" 1280 x 720</li>
+                <li>NVIDIA Custom Tegra processor</li>
+                <li>32GB</li>
+                <li>4310mAh</li>
+                <li>USB Type C</li>
+            </ul>
+            <div class="cijena">
+                <p><% if(dataAll[30].akcija_akcija_ID!== null){%>
+                    <span class='cijena-akcija' name='cijena'>
+                        <%= dataAll[30].akcijskaCijena.toFixed(2) %> kn
+                    </span>
+                    <span class='stara-cijena' name='cijena'>
+                        <%= dataAll[30].cijena %> kn
+                    </span>
+                </p>
+                <%}else {%>
+                <p>
+                    <span class='cijena-proizvoda' name='cijena'>
+                        <%= dataAll[30].cijena %> kn
+                    </span>
+                    <%}%>
+                </p>
+            </div>
+            <!-- ! FORMA STARTA -->
+            <%if(dataAll[30].stanje>0)  {%>
+            <form action="/akcije" method="POST">
+                <input name="id" type="hidden" value="<%= dataAll[30].artikl_ID%>">
+                <button type="submit" class="addBasket uKosaru">U
+                    košaricu</button>
+            </form>
+
+            <%} else{%>
+
+            <button type="submit" class="addBasket uKosaru">U
+                košaricu</button>
+            <%} %>
+        </div>
+        <!-- -------------------- -->
+        <div class="product-s lenovo">
+            <div>
+                <% if(dataAll[0].akcija_akcija_ID!== null){%>
+                <div class='akcijski-oznaka'>
+                    <p class='akcijski-znak'>
+                        <%=dataAll[0].postotak%>%</p>
+                </div><%}%>
+                                                    
+                <a href="/laptopi/1">
+                    <img src="./Stranice_dodaci/Laptopi_dodaci/Laptop1/Lenovo ThinkBook 15_1.jpg" alt="Lenovo IdeaPad Gaming 3">
+                </a>
+            </div>                                             
+            <h1><%= dataAll[0].nazivArtikla %></h1>
+            <ul>
+                <li>
+                    <span class="procesor-ime amd ekran15">AMD Ryzen 7 4800H 2.90GHz</span>
+                </li>
+                <li>
+                    <span class="memorija16">16 GB</span>
+                </li>
+                <li>
+                    <span class="disk512">512 GB SSD</span>
+                </li>
+                <li>
+                    <span class="grafička-kartica zasebna">nVidia GeForce GTX 1650 Ti 4GB</span>
+                </li>
+                <li>Windows</li>
+            </ul>
+            <div class="cijena">
+                <p><% if(dataAll[0].akcija_akcija_ID!== null){%>
+
+                    <span class='cijena-akcija' name='cijena'>
+                        <%= dataAll[0].akcijskaCijena.toFixed(2) %> kn
+                    </span>
+                    <span class='stara-cijena' name='cijena'>
+                        <%= dataAll[0].cijena %> kn
+                    </span>
+                </p>
+                <%}else {%>
+                <p>
+                    <span class='cijena-proizvoda' name='cijena'>
+                        <%= dataAll[0].cijena %> kn
+                    </span>
+                    <%}%>
+                </p>
+            </div>                                                   
+            <!-- ! FORMA STARTA -->
+            <%if(dataAll[0].stanje>0)  {%>
+            <form action="/akcije" method="POST">
+                <input name="id" type="hidden" value="<%= dataAll[0].artikl_ID%>">
+                <button type="submit" class="addBasket uKosaru">U košaricu</button>
+            </form>
+            <%} else{%>
+            <button type="submit" class="addBasket uKosaru">U košaricu</button>
+            <%} %>
+        </div>
+    </section>
+
+    <%- include('../partials/povratnaStrelica.ejs')%>
+    
+    <!-- ! FOOTER -->
+    <%- include('../partials/footer.ejs')%>
+</body>
+
+</html>

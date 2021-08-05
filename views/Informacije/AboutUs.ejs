@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GT - Više o nama</title>
+
+    <link rel="shortcut icon" href="IMG/logo/GT_favicon.ico">
+
+    <link rel="stylesheet" href="FrontEnd_stilovi/common.css">
+    <link rel="stylesheet" href="FrontEnd_stilovi/ostalo.css">
+    
+
+    <script src="FrontEnd_funkcionalnosti/common.js" defer></script>
+
+    <!-- gsap -->
+    <script src="Animacije_gsap/commonAnimacija.js" defer></script>
+    <script src="Animacije_gsap/povratnaStrelicaAnimacija.js" defer></script>
+    <script src="Animacije_gsap/ostaloAnimacija.js
+    " defer></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/CSSRulePlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/ScrollTrigger.min.js"></script>
+
+
+</head>
+
+<body>
+   <!-- ! pre-HEADER -->
+   <section class="pre-header">
+    <div class="logo">
+        <a href="/"><img src="/IMG/logo/Ikona_GameTech_ikona.png" alt="LOGO"></a>
+    </div>
+
+    <div id="basket">
+        <% if(kosarica.length<2) {%>
+        <a href="/kosarica"><img src="/IMG/logo/kolica-prazna.png" alt="KOŠARICA"></a>
+        <% }else{ %>
+        <a class="kosarica-stvar" href="/kosarica"><img src="/IMG/logo/kolica-prazna.png"  alt="KOŠARICA"></a>
+        <%}%>
+    </div>  
+</section>
+
+    <header>
+
+
+    </header>
+    
+      <!-- ! navigacija -->
+      <%- include('../partials/navigacija.ejs')  %>
+        
+      
+
+
+    <!-- !CONTENT  -->
+    <section class="sekcija_informacije">
+        <div class="kontenjer_informacije">
+            <h1>malo o projektu</h1>
+            <div class="about_info">
+                <p>
+                Ovo je projekt koji sam ja, Krunoslav Bučar uz mentorstvo prof. Jurice Đurića, izradio 2021. godine. Ovim radom sam nastojao ukomponirati sve ono znanje stečeno na fakultetu VSITE-a i znanje koje sam sam stekao vlastitim radom i istraživanjem. Ovim projektom sam nastojao izgraditi web stranicu na temelju 'frontend'-a i 'backend'-a kako bi produbio svoje znanje i stekao potpunu perspektivu onoga što je potrebno za izradu potupne i funkcionalne stranice. 
+                </p>
+                <img src="IMG/Ratnici_artistic.png" alt="ratnici">
+
+            </div>
+            
+            <div class="about_info">
+                <img src="IMG/Zuti_art.png" alt="ratnici">
+            <p>
+                U projektu sam koristio osnovne alate za izradu frontend dijela stranice kao što su HTML, CSS i JavaScript. Za backend sam spojio Node.js i framework Express.js uz još neke dodatke (npr template engine -EJS). Uz handlanje backend dijela sve je još spojeno na bazu podataka kako bi se vodila evidencija npr. stanje artikla, cijena artikla, kupci i njihove informacije, evidentiranje da je kupovina uspješno izvršena itd. 
+                Umjesto animiranja pomoću CSS, koristio sam GSAP biblioteku. Pisanje GSAP animacija se vrši pisanjem JavaScript koda.
+                
+
+            </p>
+            </div>
+            <div class="about_info">
+                <p>
+                    Uz alate koji su čisto vezani za pisanje koda, još sam koristio alate za crtanje kao što je CLIP Studio. Tako su svi crteži neka vrsta moje vlastite ideje kako bi moj zamišljeni web-shop trebao izgledati a i inspiracija koju sam pokupio dolazi od arkadne igrice Pac-Man-a. 
+                </p>
+                <img src="IMG/Crveni_art.png" alt="ratnici">
+            </div>
+        </div>
+       
+    </section>
+
+
+    <%- include('../partials/povratnaStrelica.ejs')%>
+    <!-- ! FOOTER -->
+    <%- include('../partials/footer.ejs')%>
+</body>
+
+</html>

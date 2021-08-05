@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naplata</title>
+    <link rel="shortcut icon" href="/IMG/logo/GT_favicon.ico">
+
+    <link rel="stylesheet" href="/FrontEnd_stilovi/common.css">
+    <link rel="stylesheet" href="/Stranice_dodaci/Kosarica_dodaci/style_checkout.css">
+
+    <script src="/Stranice_dodaci/Kosarica_dodaci/script_checkout.js" defer></script>
+
+
+        <!-- gsap -->
+        <script src="/Animacije_gsap/naplataAnimacija.js" defer></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/CSSRulePlugin.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/ScrollToPlugin.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+    <section class="sekcija-naplata">
+        <div class="koraci">
+            <ul>
+                <li><span>1 </span> postupak naplate</li>
+                <li><span>2</span> informacije o kupcu </li>
+                <li><span class="aktivni-korak">3</span> izbor plaćanja i isporuka </li>
+                <li><span>4</span> pregled</li>
+            </ul>
+        </div>
+        <div class="izbor-placanja">
+            <div class="kratki-pregled">
+
+                <div>
+                    <h2>kratki pregled</h2>
+                    <p>ime i prezime: <%=data.ime%> <%= data.prezime %> </p>
+                    <p>ulica: <%=data.ulica %> </p>
+                    <p>poštanski br. i mjesto: <%=data.postaBr%>, <%= data.grad %> </p>
+
+                    <h4>kontakt</h4>
+                    <p>email: <%=data.email%></p>
+                    <p>telefon: <%=data.telefon %> </p>
+                </div>
+            </div>
+
+            <div class="form-placanje">
+
+                <form action="/naplata/3" method="POST">
+                    <div class="naslov-placanja">
+                        <h1>odaberi način plaćanja</h1>
+                    </div>
+
+                    <div class="form-div-dio">
+                        <div>
+                            <input type="radio" name="placanje" value="2" id="kreditna" required>
+                            <label for="kreditna"> kreditnom karticom</label>
+                        </div>
+
+
+                        <div class="no-active">
+                            <h5>vrsta dostave:</h5>
+                            <div>
+                                <input type="radio" name="dostava" value="1" id="dostava" required>
+                                <label for="isporuka">dostava na adresu</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="dostava" value="2" id="osobno">
+                                <label for="osobno">osobno preuzimanje</label>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="form-div-dio">
+                        <div>
+                            <input type="radio" name="placanje" value="1" id="pouzece">
+                            <label for="pouzece">pouzećem/prilikom dostave na adresu</label>
+                        </div>
+
+
+                        <div class="no-active">
+                            <h5>vrsta dostave:</h5>
+                            <div>
+                                <input type="radio" name="dostava" value="1" id="dostava">
+                                <label for="isporuka">dostava na adresu</label>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="form-div-dio">
+                        <div>
+                            <input type="radio" name="placanje" value="3" id="gotovina">
+                            <label for="gotovina">gotovinom</label>
+                        </div>
+
+
+                        <div class="no-active">
+                            <h5>vrsta dostave:</h5>
+                            <div>
+                                <input type="radio" name="dostava" value="2" id="osobno">
+                                <label for="osobno">osobno preuzimanje</label>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <!-- sljedeća stranica -->
+                    <input class="btn idi-dalje" type="submit" value="idi na sljedeći korak">
+
+                </form>
+                <!-- prethodna stranica -->
+                <!-- <form action="/naplata/2" method="get">
+                    <input type="submit" value="Idi na prethodni korak">
+                </form> -->
+                <a href="/naplata/2"><input type="submit" class="btn vrati-se" value="idi prethodni korak"> </a>
+            </div>
+
+        </div>
+    </section>
+</body>
+
+</html>

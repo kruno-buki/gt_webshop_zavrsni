@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GT - Gaming</title>
+
+    <link rel="shortcut icon" href="IMG/logo/GT_favicon.ico">
+    <link rel="stylesheet" href="FrontEnd_stilovi/common.css">
+    <link rel="stylesheet" href="FrontEnd_stilovi/gaming-busines.css">
+    <link rel="stylesheet" href="FrontEnd_stilovi/common_proizvodi.css">
+
+    <script src="FrontEnd_funkcionalnosti/common.js" defer></script>
+
+    <!-- gsap -->
+    <script src="Animacije_gsap/commonAnimacija.js" defer></script>
+    <script src="Animacije_gsap/povratnaStrelicaAnimacija.js" defer></script>
+    <script src="Animacije_gsap/gameBusinesAnimacije.js
+    " defer></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/CSSRulePlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/ScrollTrigger.min.js"></script>
+   
+</head>
+
+<body>
+
+
+     <!-- ! pre-HEADER -->
+     <section class="pre-header">
+        <div class="logo">
+            <a href="/"><img src="/IMG/logo/Ikona_GameTech_ikona.png" alt="LOGO"></a>
+        </div>
+
+        <div id="basket">
+            <% if(kosarica.length<2) {%>
+            <a href="/kosarica"><img src="/IMG/logo/kolica-prazna.png" alt="KOŠARICA"></a>
+            <% }else{ %>
+            <a class="kosarica-stvar" href="/kosarica"><img src="/IMG/logo/kolica-prazna.png"  alt="KOŠARICA"></a>
+            <%}%>
+        </div>  
+    </section>
+    <!-- ! navigacija -->
+      <%- include('../partials/navigacija.ejs')  %>
+
+            <!-- ! HEADER - Carousel -->
+            <!-- <header> </header> -->
+
+    <!-- !CONTENT  -->
+    <section class="tematska-sekcija">
+        <!-- *1 -->           
+        <div class="tematski-proizvod" id="gaming1">
+            <div class="wrap-opis">
+                <h2>lenovo ideapad gaming 3</h2>
+                <p>
+                    izvrstan gaming laptop sa snažnim procesorom, brzim SSD-om i sa odličnim 120Hz display-om
+                </p>
+            </div>
+            <!-- slika -->
+             <a href="/laptopi/3" class="link-na-proizvod">
+                <img src="/Stranice_dodaci/Gaming_business_dodaci/Galerija_gaming/ideapad_laptop.png" alt="ideapad">
+            </a>
+
+            
+ 
+           <div class="wrapper-cijena">
+            <p> 
+                <span class='cijena-akcija cijena-proizvoda' name='cijena'>7 010.10 kn </span>
+                <span class='stara-cijena' name='cijena'> 7 789.00 kn </span>
+            </p>
+
+            <a href="/laptopi/3" class="vidi_vise">vidi više</a>
+
+           </div>
+
+        </div>
+
+
+
+        <!-- *2 -->   
+        <div class="tematski-proizvod" id="gaming2">
+            <!-- slika -->
+
+            <div class="wrap-opis">
+                    <h2>lenovo legion 5</h2>
+                    <p>
+                         laptop sa naprednim hlađenjem, brzim 'pro' punjenjem, superiornim kontrolnim tipkama, amd ryzen procesorom i mnogim drugime ... predstavljamo vam laptop sa beskompromisnim performansama za gaming
+                    </p>
+            </div>
+               <!-- slika -->
+            <a href="/laptopi/4" class="link-na-proizvod">
+                <img src="/Stranice_dodaci/Gaming_business_dodaci/Galerija_gaming/legion_laptop.png" alt="ideapad">
+            </a>
+ 
+           <div class="wrapper-cijena">
+            <p> 
+                <span class='cijena-proizvoda'>8 050.00 kn</span>
+               
+            </p>
+               <a href="/laptopi/4" class="vidi_vise">vidi više</a>
+           </div>
+
+        </div>
+        <!-- *3 -->   
+        <div class="tematski-proizvod" id="gaming3">
+          
+            <div class="wrap-opis">
+                <h2>acer gaming nitro 5</h2>
+                <p>
+                    moćan laptop sa brzim display-om i izvrsnom grafičkom karticom koja daje ogroman skok u performansama i koja će zadovoljiti svakog pravog  gamera
+                </p>
+            </div>
+            <a href="/laptopi/10" class="link-na-proizvod">
+                <img src="/Stranice_dodaci/Gaming_business_dodaci/Galerija_gaming/nitro_laptop.png" alt="ideapad">
+            </a>
+ 
+           <div class="wrapper-cijena">
+            <p> 
+                <span class='cijena-akcija cijena-proizvoda' name='cijena'>6 169.30 kn</span>
+                <span class='stara-cijena' name='cijena'> 7 258.00 kn </span>
+            </p>
+               <a href="/laptopi/10" class="vidi_vise">vidi više</a>
+           </div>
+
+        </div>
+         <!-- *4 -->   
+        <div class="tematski-proizvod" id="gaming4">
+            <!-- slika -->
+            <div class="wrap-opis">
+                <h2>acer predator helios 300</h2>
+                <p>
+                   laptop sa munjevitim zaslonom i moćnom grafikom predstavlja moćan arsenal u borbi protiv tvojih najljućih neprijatelja
+                </p>
+            </div>
+            <a href="/laptopi/11" class="link-na-proizvod">
+                <img src="/Stranice_dodaci/Gaming_business_dodaci/Galerija_gaming/predator_laptop.png" alt="ideapad">
+            </a>         
+ 
+           <div class="wrapper-cijena">
+            <p> 
+                <span class='cijena-proizvoda'>10 125.00 kn </span>
+
+            </p>
+            <a href="/laptopi/11" class="vidi_vise">vidi više</a>
+           </div>
+
+        </div>
+
+    </section>
+
+
+    <%- include('../partials/povratnaStrelica.ejs')%>
+            <!-- ! FOOTER -->
+            <%- include('../partials/footer.ejs')%>
+</body>
+
+</html>

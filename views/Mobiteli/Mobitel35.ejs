@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- !HEAD -->
+<%- include('../partials/proizvodi_head_tag.ejs')  %>
+
+<!-- ! pre-HEADER -->
+<section class="pre-header">
+    <div class="logo">
+        <a href="/"><img src="/IMG/logo/Ikona_GameTech_ikona.png" alt="LOGO"></a>
+    </div>
+
+    <div id="basket">
+        <% if(kosarica.length<2) {%>
+           <a href="/kosarica"><img src="/IMG/logo/kolica-prazna.png" alt="KOŠARICA"></a>
+        <% }else{ %>
+          <a class="kosarica-stvar" href="/kosarica"><img src="/IMG/logo/kolica-prazna.png"  alt="KOŠARICA"></a>
+        <%}%>
+    </div>  
+</section>
+<!-- ! NAVIGACIJA -->
+<%- include('../partials/navigacija.ejs')  %>
+<!-- ! HEADER - Carousel -->
+<header>
+
+</header>
+
+<!-- !CONTENT  -->
+<section class="all-content vidi-vise-content">
+    <section class="slideshowContainer-vidiVise">
+        <!-- Container for the image gallery -->
+
+
+        <!-- Full-width images with number text -->
+        <div class="slides-vidiVise">
+            <div class="numbertext">1 / 3</div>
+            <img src="/Stranice_dodaci/Mobiteli_dodaci/Mobitel35/apple_se_3.jpg">
+        </div>
+
+        <div class="slides-vidiVise">
+            <div class="numbertext">2 / 3</div>
+            <img src="/Stranice_dodaci/Mobiteli_dodaci/Mobitel35/apple_se_1.jpg">
+        </div>
+        <div class="slides-vidiVise">
+            <div class="numbertext">3 / 3</div>
+            <img src="/Stranice_dodaci/Mobiteli_dodaci/Mobitel35/apple_se_2.png">
+        </div>
+
+
+        <!-- Next and previous buttons -->
+        <a class="prevV" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="nextT" onclick="plusSlides(1)">&#10095;</a>
+
+        <!-- Image text -->
+        <div class="caption-container">
+            <p id="caption"></p>
+        </div>
+
+        <!-- Thumbnail images -->
+        <div class="row-picture">
+            <div class="column-picture">
+                <img class="demo cursor" src="/Stranice_dodaci/Mobiteli_dodaci/Mobitel35/apple_se_3.jpg"
+                    onclick="currentSlide(1)" alt="apple SE slika 1">
+            </div>
+
+            <div class="column-picture">
+                <img class="demo cursor" src="/Stranice_dodaci/Mobiteli_dodaci/Mobitel35/apple_se_1.jpg"
+                    onclick="currentSlide(2)" alt="apple SE slika 2">
+            </div>
+            <div class="column-picture">
+                <img class="demo cursor" src="/Stranice_dodaci/Mobiteli_dodaci/Mobitel35/apple_se_2.png"
+                    onclick="currentSlide(3)" alt="apple SE slika 3">
+            </div>
+
+        </div>
+
+    </section>
+    <section class="karakteristike">
+        <div>
+            <h1><%= data.nazivArtikla %></h1>
+            <ul>
+                <li>ekran: 4.7" Super Retina IPS LCD capacitive touchscreen</li>
+                <li>procesor: CPU Hexa-core (2x2.84GHz Lightning + 4x1.8 GHz Thunder)</li>
+                <li>baterija: Li-Po 1821 mAh, non-removable</li>
+                <li>kamera: glavna kamera Single 12 MP, f/1.8 (wide), PDAF, OIS</li>
+                <li>memorija: 3GB RAM/64GB Memorija</li>
+                <li>gpu: Apple GPU (4-core graphics)</li>
+                <li>težina: 148 g </li>
+
+            </ul>
+        </div>
+
+        <!-- 2 -->
+        <div>
+            <p>na stanju: <span><%= data.stanje%></span> komada</p>
+
+
+            <div class="cijena-pojedinačna">
+
+                <p> <% if(data.akcija_akcija_ID!== null){%>
+
+                    <span class='cijena-akcija cijena-proizvoda' name='cijena'>
+                        <%= data.akcijskaCijena.toFixed(2)%> kn
+                    </span>
+                    <span class='stara-cijena' name='cijena'>
+                        <%= data.cijena %>kn
+                    </span>
+                </p>
+                <%}else {%>
+                <p>
+                    <span class='cijena-proizvoda' name='cijena'>
+                        <%= data.cijena %> kn
+                    </span>
+                    <%}%>
+                        </p>
+                            
+                </div>
+            </div>
+            <!-- 3 -->
+            <div>
+               
+                    <!-- ! FORMA STARTA -->
+                    <%if(data.stanje>0)  {%>
+                    <form action="/mobiteli/22" method="POST">
+                        <input name="id" type="hidden" value="<%= data.artikl_ID%>">
+                        <button type="submit" class="addBasket uKosaru">u košaricu</button>
+                    </form>
+                    <%} else{%>
+                    <button type="submit" class="addBasket uKosaru stanje-nula">u košaricu</button>
+                    <%} %>
+
+                    <a href="../mobiteli" class='pogledaj-ostalo'>
+                        <p>pogledaj ostale mobitele</p>
+                    </a> 
+
+            </div>
+    </section>
+
+</section>
+<!-- ! FOOTER -->
+<%- include('../partials/footer.ejs')  %>
+</body>
+
+</html>

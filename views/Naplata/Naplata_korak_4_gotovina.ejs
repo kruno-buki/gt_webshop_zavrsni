@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placanje gotovinom</title>
+    <link rel="shortcut icon" href="/IMG/logo/GT_favicon.ico">
+
+    <link rel="stylesheet" href="/FrontEnd_stilovi/common.css">
+    <link rel="stylesheet" href="/Stranice_dodaci/Kosarica_dodaci/style_checkout.css">
+
+     <!-- gsap -->
+     <script src="/Animacije_gsap/naplataAnimacija.js" defer></script>
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/gsap.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/CSSRulePlugin.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/ScrollToPlugin.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+    <section class="sekcija-naplata">
+        <div class="naslov-placanja">
+            <h1>gotovinsko plaćanje</h1>
+        </div>
+        <div class="zavrsetak-naplata">
+
+            <p>
+                Poštovani/na <em><span class="istakni"><%=dataInfo.ime%> <%= dataInfo.prezime %></span></em>
+            </p>
+
+            <p>
+                Odabrali ste plaćanje gotovinom. Vašu narudžbu smo zabilježili i proslijedili na daljnju obradu.
+            </p>
+            <p>
+                Narudžbu možete podići u roku od 5 radnih dana, računajući od datuma:
+                <span class="istakni"><%= dataInfo.datumNarudzbe %></span>
+                
+            </p>
+            <p>
+                Ako imate kakvih upita javite se našem osoblju i rado ćemo Vam pomoći. Hvala Vam što ste odabrali
+                GameTech.
+            </p>
+            <form action="/naplata/end" method="post">
+                <input type="submit" value="Vrati se na početak" class="btn idi-dalje">
+            </form>
+        </div>
+
+    </section>
+</body>
+
+</html>

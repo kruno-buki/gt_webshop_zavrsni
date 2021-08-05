@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GT - Home</title>
+
+    <link rel="shortcut icon" href="IMG/logo/GT_favicon.ico">
+    <link rel="stylesheet" href="FrontEnd_stilovi/common.css">
+    <link rel="stylesheet" href="FrontEnd_stilovi/home.css">
+    
+
+    <script src="FrontEnd_funkcionalnosti/common.js" defer></script>
+    <script src="FrontEnd_funkcionalnosti/Home-carousel.js" defer></script>
+    
+
+
+    <!-- gsap -->
+    <script src="Animacije_gsap/commonAnimacija.js" defer></script>
+    <script src="Animacije_gsap/povratnaStrelicaAnimacija.js" defer></script>
+    <script src="Animacije_gsap/go_forward.js" defer></script>
+    <script src="Animacije_gsap/home_animacije.js" defer></script>
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/CSSRulePlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollTrigger.min.js"></script>
+   
+
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Frijole&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- ! pre-HEADER -->
+    <section class="pre-header">
+        <div class="logo">
+            <a href="/"><img src="/IMG/logo/Ikona_GameTech_ikona.png" alt="LOGO"></a>
+        </div>
+
+        <div id="basket">
+            <% if(kosarica.length<2) {%>
+            <a href="/kosarica"><img src="/IMG/logo/kolica-prazna.png" alt="KOŠARICA"></a>
+            <% }else{ %>
+            <a class="kosarica-stvar" href="/kosarica"><img src="/IMG/logo/kolica-prazna.png" alt="KOŠARICA"></a>
+            <%}%>
+        </div>  
+    </section>
+
+    <!--!navigacija -->
+    <%- include('../partials/navigacija.ejs')  %>
+    
+    <!-- ! HEADER -->
+    <%- include('../partials/Home_dijelovi/Home_header.ejs')  %>
+
+    <!-- !CONTENT  -->
+    <section class="all-content kontenjer-sekcija-home">
+        
+    <!-- ! PODKATEGORIJE:  -->
+    <section class="podkategorije-kontenjer">
+
+        <div id="gaming_podkategorija" class="podkategorije">  
+
+            <a href="/gaming" class="gaming" >
+            <!-- ! uključivanje svg-a -->
+            <%- include('../partials/Home_dijelovi/Home_game_podkategorija.ejs')  %>
+            </a> 
+
+            <div class="opis_kategorije ">
+                <h2>gaming</h2>
+                <p> zakorači u igru sa najboljim strojem i pometi konkurenciju </p>
+            </div>   
+
+            <a href="/gaming" class="vidi_vise">vidi više</a>  
+        </div>
+
+        <div id="business_podkategorija" class="podkategorije">                
+
+                <a href="/business" class="study">                    
+                    <!-- ! uključivanje svg-a -->
+                    <%- include('../partials/Home_dijelovi/Home_business_podkategorija.ejs')  %>
+                </a>
+                   
+                <div class="opis_kategorije">
+                    <h2>posao i učenje</h2>
+                    <p> Za tvoj uspjeh imamo sve ! </p>
+                </div>
+            
+            <a href="/business" class="vidi_vise">vidi više</a>
+     
+        </div>
+    </section>
+
+        <!-- ! SLIDESHOW -->
+        <section class="sekcija-slideshow">
+
+            <div class="slideshow-kontenjer">
+        
+                <div class="slide fade" id="mac_reklama">
+                    <a href="/laptopi/36" >
+                        <!-- !ZAMJENI img sa svg -->
+                        <%- include('../partials/Home_slideShow_galerija/slide_apple_.ejs')  %>
+                    </a>
+                    
+                    <div class="info">
+                        <h2>apple macbook pro 13</h2>
+                        <p>apple-ov m1 chip daje brzinu i moć iznad mogućeg. Procesor sa 2.8x jakim performansama, grafička do 5x veće brzine i trajanje baterije do 20h pruža odgovor na sve vaše zahtjeve.</p>
+                    </div>
+                    
+                    <p class="slideshow-cijena">
+                        <span class="cijena"> 11 577.45 kn</span>
+                        
+                    </p>
+
+                    <a href="/laptopi/36" class="vidi_vise vidi_vise_galerija">vidi više</a>
+                    
+                </div>
+        
+                <div class="slide fade" id="xiaomi_reklama">
+                    <a href="/mobiteli/14">
+                        <!-- !ZAMJENI img sa svg -->
+                        <%- include('../partials/Home_slideShow_galerija/slide_xiaomi.ejs')  %>
+                    </a>
+                    
+                    <div class="info">
+                        <h2>xiaomi redmi note 10 pro</h2>
+                        <p>mobitel čija kamera ima moćne performanse i sa kojom ćeš vidjeti detalje koje prije nisi mogao vidjeti. </p>
+                    </div>
+                    
+                    <p class="slideshow-cijena">
+                        <span class="cijena">4 150.00 kn</span>
+                        
+                    </p>
+
+                    <a href="/mobiteli/14" class="vidi_vise vidi_vise_galerija">vidi više</a>
+
+                </div>
+
+                <div class="slide fade" id="acer_reklama">
+                    <a href="/laptopi/11">
+                       <!-- !ZAMJENI img sa svg -->
+                       <%- include('../partials/Home_slideShow_galerija/slide_acer.ejs')  %>
+                    </a>
+                    
+                    <div class="info">
+                        <h2>acer predator helios 300</h2>
+                        <p>
+                            laptop sa blistavim i brzim zaslonom te najnovijom NVIDIA® GeForce RTX ™ 30 serijom grafičke i 11. generacijom Intel® Core ™. uđi u igru sa preciznim i moćnim naoružanjem. 
+
+                        </p>
+                    </div>
+                    <p class="slideshow-cijena">
+                        <span class="cijena">10 125.00 kn</span>
+                        
+                    </p>
+
+                    <a href="/laptopi/11" class="vidi_vise vidi_vise_galerija">vidi više</a>
+
+                </div>
+
+                <div class="slide fade" id="odisej_reklama">
+                    <a href="/monitori/23">
+                          <!-- !ZAMJENI img sa svg -->
+                       <%- include('../partials/Home_slideShow_galerija/slide_odisej.ejs')  %>
+                    </a>
+                    
+                    <div class="info">
+                        <h2>samsung 49" Odyssey</h2>
+                        <p>
+                            uroni u potpuno drugačiju i spektakularnu dimenziju gdje svaka nijansa i boja izgleda kao stvarnost. budućnost stoji ispred tebe !  
+                        </p>
+                    </div>
+                    <p class="slideshow-cijena">
+                        
+                        <span class='cijena akcijska-cijena'>11 210.40 kn</span>
+                        <span class='cijena stara-cijena'>12 456.00 kn </span>
+                    </p>
+                    <a href="/monitori/23" class="vidi_vise vidi_vise_galerija">vidi više</a>
+
+                </div>
+
+                <a class="prev" onclick='plusSlides(-1)'>&#10094;</a>
+                <a class="next" onclick='plusSlides(1)'>&#10095;</a>
+
+            </div>
+
+            <!-- dot slider -->
+            <div class="dot-navigation-bar">
+                <span class="dot-slider" onclick='currentSlide(1)'></span>
+                <span class="dot-slider" onclick='currentSlide(2)'></span>
+                <span class="dot-slider" onclick='currentSlide(3)'></span>
+                <span class="dot-slider" onclick='currentSlide(4)'></span>
+            </div>
+        </section>
+      
+        <!-- ! PROMO -->
+        <section class="promo-akcija">
+            <h1 id="naslov_akcije"><span  class="span_istakni">popusti</span></h1>
+            <div>
+
+                <a href="/akcije" id="akcija_animiranje">
+                    <%- include('../partials/Home_dijelovi/Home_akcija.ejs')  %>
+                </a>
+                <a href="/akcije" class="vidi_vise vidi_vise_akcija">
+                    vidi više
+                </a>
+            </div>
+            
+        </section>
+
+
+        <div class="promo-posao"> 
+            <h2>imamo <span class="span_istakni">posao</span> za tebe</h2>
+            <a href="/posao" id="onama_animiranje">
+                <img src="IMG/prst_2.png" alt="slika prst">
+            </a>    
+            <a href="/posao" class="vidi_vise vidi_vise_posao">
+                vidi više
+            </a> 
+        </div>
+        
+    </section>
+
+    <%- include('../partials/povratnaStrelica.ejs')%>
+    <!-- ! FOOTER -->
+    <%- include('../partials/footer.ejs')%>
+</body>
+
+</html>

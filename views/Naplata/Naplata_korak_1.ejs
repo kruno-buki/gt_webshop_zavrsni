@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naplata</title>
+
+    <link rel="shortcut icon" href="/IMG/logo/GT_favicon.ico">
+
+    <link rel="stylesheet" href="/FrontEnd_stilovi/common.css">
+    <link rel="stylesheet" href="/Stranice_dodaci/Kosarica_dodaci/style_checkout.css">
+
+    <!-- gsap -->
+    <script src="/Animacije_gsap/naplataAnimacija.js" defer></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/CSSRulePlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+    <section class="sekcija-naplata">
+        <div class="koraci">
+            <ul>
+                <li><span class="aktivni-korak">1 </span> postupak naplate</li>
+                <li><span>2</span> informacije o kupcu </li>
+                <li><span>3</span> izbor plaćanja i isporuka </li>
+                <li><span>4</span> pregled</li>
+            </ul>
+        </div>
+        <div>
+            <div class="naslov-placanja">
+                <h1>postupak izvršavanja narudžbe</h1>
+            </div>
+
+            <div class="uvod-naplata">
+                <p>
+                    Poštovani/na, u sljedećih nekoliko korak potrebno je ispuniti podatke nužne za kreiranje dostave i
+                    izdavanje računa. Vaše podatke koristimo jedino i samo u svrhu pravilnog kreiranja i izvršavanja
+                    dostave kao i za pravilno izdavanje računa.
+                </p>
+            </div>
+
+            <div class="form-popunjavanje">
+                <!-- sljedeća stranica -->
+                <form action="/naplata/2" method="get">
+                    <input type="submit" class="btn idi-dalje" value="sljedeći korak">
+                </form>
+
+                <a href="/kosarica"><input type="submit" class="btn vrati-se" value="prethodni korak"> </a>
+
+            </div>
+        </div>
+
+    </section>
+</body>
+
+</html>

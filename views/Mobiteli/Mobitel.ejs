@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GT-Mobiteli</title>
+
+    <link rel="shortcut icon" href="./IMG/logo/GT_favicon.ico">
+
+    <link rel="stylesheet" href="./FrontEnd_stilovi/common.css">
+    <link rel="stylesheet" href="./FrontEnd_stilovi/common_proizvodi.css">
+
+    <script src="./FrontEnd_funkcionalnosti/Filtriranje.js" defer></script>
+    <script src="./Stranice_dodaci/Mobiteli_dodaci/Filtriranje-mobitela.js" defer></script>
+    <script src="./FrontEnd_funkcionalnosti/common.js" defer></script>
+    <!-- <link rel="stylesheet" href="./Stranice_dodaci/Akcije_dodaci/Akcija.css"> -->
+
+   <!-- gsap -->
+    <script src="Animacije_gsap/commonAnimacija.js" defer></script>
+    <script src="Animacije_gsap/povratnaStrelicaAnimacija.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/CSSRulePlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+    <!-- ! pre-HEADER -->
+    <section class="pre-header">
+        <div class="logo">
+            <a href="/"><img src="/IMG/logo/Ikona_GameTech_ikona.png" alt="LOGO"></a>
+        </div>
+
+        <div id="basket">
+            <% if(kosarica.length<2) {%>
+            <a href="/kosarica"><img src="/IMG/logo/kolica-prazna.png" alt="KOŠARICA"></a>
+            <% }else{ %>
+            <a class="kosarica-stvar" href="/kosarica"><img src="/IMG/logo/kolica-prazna.png"  alt="KOŠARICA"></a>
+            <%}%>
+        </div>  
+    </section>
+
+    <!-- !navigacija -->
+   <%- include('../partials/navigacija.ejs')  %>
+
+    <!-- ! HEADER - Carousel
+    <header>
+    </header> -->
+    <!-- !FILTER  -->
+    <section class="all-content kontenjer-sekcija-artikala">
+        <section class="filter">
+            <div class="slidecontainer">
+                <h3>cijena</h3>
+                <input type="range" min="1000" max="15000" value="1" class="slider" id="myRange">
+                <p>vrijednost: <span id="range-cijena"></span></p>
+            </div>
+
+            <div id="btnContainer">
+                <button class="btn active" onclick="prikaziSve()">prikaži sve</button>
+                <button class="btn" onclick="prikazi('apple')">apple</button>
+                <button class="btn" onclick="prikazi('samsung')">samsung</button>
+                <button class="btn" onclick="prikazi('oneplus')">oneplus</button>
+                <button class="btn" onclick="prikazi('xiaomi')">xiaomi</button>
+            </div>
+
+            <div class="check-filter provjera ekran">
+                <h3>radna m.</h3>
+                <div>
+                    <label for="mem3gb-m">3 gb</label>
+                    <input type="checkbox" id="mem3gb-m" name="memory" class="chk">
+
+                    <label for="mem4gb-m">4 gb </label>
+                    <input type="checkbox" id="mem4gb-m" name="memory" class="chk">
+
+                    <label for="mem6gb-m">6 gb </label>
+                    <input type="checkbox" id="mem6gb-m" name="memory" class="chk">
+
+                    <label for="mem8gb-m">8 gb </label>
+                    <input type="checkbox" id="mem8gb-m" name="memory" class="chk">
+
+                </div>
+            </div>
+            <div class="check-filter provjera ekran">
+                <h3>pohrana</h3>
+                <div>
+                    <label for="d64gb-m">64 gb</label>
+                    <input type="checkbox" id="d64gb-m" name="disk" class="chk">
+
+                    <label for="d128gb-m">128 gb</label>
+                    <input type="checkbox" id="d128gb-m" name="disk" class="chk">
+
+                    <label for="d256gb-m">256 gb</label>
+                    <input type="checkbox" id="d256gb-m" name="disk" class="chk">
+                </div>
+            </div>
+        </section>
+        <!-- !CONTENT  -->
+        <!-- --------------------- -->
+    <section class="sekcija-proizvoda">
+        <section class="proizvodi-grid">
+            <div class="product-ns samsung">
+                <div>
+                    <% if(dataAll[0].akcija_akcija_ID!== null){%>
+                    <div class='akcijski-oznaka'>
+                        <p class='akcijski-znak'><%=dataAll[0].postotak%>%</p>
+                    </div><%}%>
+                    <a href="/mobiteli/13">
+                        <img src="./Stranice_dodaci/Mobiteli_dodaci/Mobitel13/Samsung Galaxy S20 FE_1.jpg"
+                            alt="Mobitel Samsung Galaxy S20 FE">
+                    </a>
+            </div>
+            <h1><%= dataAll[0].nazivArtikla %></h1>
+            <ul>
+                <li>6.5" 1080 x 2400px</li>
+                <li>Octa-Core 2.84GHz</li>
+                <li><span class="memorija6_m">6GB RAM</span></li>
+                <li><span class="disk128gb-m">128GB Memorija</span></li>
+                <li>Li-Po 4500 mAh, non-removable</li>
+            </ul>
+            <div class="cijena">
+                <p> <% if(dataAll[0].akcija_akcija_ID!== null){%>
+                    <span class='cijena-akcija cijena-proizvoda' name='cijena'>
+                        <%= dataAll[0].akcijskaCijena.toFixed(2) %> kn
+                    </span>
+                    <span class='stara-cijena' name='cijena'>
+                        <%= dataAll[0].cijena %> kn
+                    </span>
+                </p>
+                <%}else {%>
+                <p>
+                    <span class='cijena-proizvoda' name='cijena'>
+                        <%= dataAll[0].cijena %> kn
+                    </span>
+                    <%}%>
+                            </p>
+            </div>
+            <!-- ! FORMA STARTA -->
+            <%if(dataAll[0].stanje>0)  {%>
+            <form action="/mobiteli" method="POST">
+                <input name="id" type="hidden" value="<%= dataAll[0].artikl_ID%>">
+                <button type="submit" class="addBasket uKosaru">U košaricu</button>
+            </form>
+            <%} else{%>
+            <button type="submit" class="addBasket uKosaru">U košaricu</button>
+            <%} %>
+        </div>
+        <!-- --------------------------------------------------- -->
+        <div class="product-ns xiaomi">
+            <div>
+                <% if(dataAll[1].akcija_akcija_ID!== null){%>
+                <div class='akcijski-oznaka'>
+                    <p class='akcijski-znak'><%=dataAll[1].postotak%>%</p>
+                </div><%}%>
+                    <a href="/mobiteli/14">
+                        <img src="./Stranice_dodaci/Mobiteli_dodaci/Mobitel14/mobitel-xiaomi-redmi-note-10-pro.jpg"
+                            alt="Xiaomi Redmi Note 10 Pro">
+                    </a>
+            </div>
+            <h1><%= dataAll[1].nazivArtikla %></h1>
+            <ul>
+                <li>6.67" 1080x2400px</li>
+                <li>Octa-Core 2.84GHz</li>
+                <li><span class="memorija8_m">8GB RAM</span></li>
+                <li><span class="disk128gb-m">128GB Memorija</span></li>
+                <li>Li-Po 5020 mAh, non-removable</li>
+            </ul>
+            <div class="cijena">
+                <p> <% if(dataAll[1].akcija_akcija_ID!== null){%>
+                    <span class='cijena-akcija cijena-proizvoda' name='cijena'>
+                        <%= dataAll[1].akcijskaCijena.toFixed(2) %> kn
+                    </span>
+                    <span class='stara-cijena' name='cijena'>
+                        <%= dataAll[1].cijena %> kn
+                    </span>
+                </p>
+                <%}else {%>
+                <p>
+                    <span class='cijena-proizvoda' name='cijena'>
+                        <%= dataAll[1].cijena %> kn
+                    </span>
+                    <%}%>
+                </p>
+            </div>
+            <!-- ! FORMA STARTA -->
+            <%if(dataAll[1].stanje>0)  {%>
+            <form action="/mobiteli" method="POST">
+                <input name="id" type="hidden" value="<%= dataAll[1].artikl_ID%>">
+                <button type="submit" class="addBasket uKosaru">U košaricu</button>
+            </form>
+            <%} else{%>
+            <button type="submit" class="addBasket uKosaru">U košaricu</button>
+            <%} %>
+        </div>
+        <!-- ---------------------------------------------- -->
+        <div class="product-ns samsung">
+            <div>
+                <% if(dataAll[2].akcija_akcija_ID!== null){%>
+                <div class='akcijski-oznaka'>
+                    <p class='akcijski-znak'><%=dataAll[2].postotak%>%</p>
+                </div><%}%>
+                <a href="/mobiteli/15">
+                    <img src="./Stranice_dodaci/Mobiteli_dodaci/Mobitel15/mobitel-samsung-galaxy-s21.jpg"
+                        alt="Samsung Galaxy S21+">
+                </a>
+            </div>
+            <h1><%= dataAll[2].nazivArtikla %></h1>
+            <ul>
+                <li>6.7" 1080x2400px</li>
+                <li>Octa-Core 2.9GHz</li>
+                <li><span class="memorija6_m">6GB RAM</span></li>
+                <li><span class="disk128gb-m">128GB Memorija</span></li>
+                <li>Li-Po 4500 mAh, non-removable</li>
+            </ul>
+            <div class="cijena">
+                <p> <% if(dataAll[2].akcija_akcija_ID!== null){%>
+                    <span class='cijena-akcija cijena-proizvoda' name='cijena'>
+                        <%= dataAll[2].akcijskaCijena.toFixed(2) %> kn
+                    </span>
+                    <span class='stara-cijena' name='cijena'>
+                        <%= dataAll[2].cijena %> kn
+                    </span>
+                </p>
+                <%}else {%>
+                <p>
+                    <span class='cijena-proizvoda' name='cijena'>
+                        <%= dataAll[2].cijena %> kn
+                    </span>
+                    <%}%>
+                </p>
+            </div>
+            <!-- ! FORMA STARTA -->
+            <%if(dataAll[2].stanje>0)  {%>
+                        <form action="/mobiteli" method="POST">
+                            <input name="id" type="hidden" value="<%= dataAll[2].artikl_ID%>">
+                            <button type="submit" class="addBasket uKosaru">U
+                                košaricu</button>
+                        </form>
+                        <%} else{%>
+                        <button type="submit" class="addBasket uKosaru">U
+                            košaricu</button>
+                        <%} %>
+                </div>
+        <!-- -------------------------------------------------------- -->
+        <div class="product-ns xiaomi">
+            <div>
+                <% if(dataAll[3].akcija_akcija_ID!== null){%>
+                <div class='akcijski-oznaka'>
+                    <p class='akcijski-znak'><%=dataAll[3].postotak%>%</p>
+                </div><%}%>
+                        <a href="/mobiteli/16">
+                            <img src="./Stranice_dodaci/Mobiteli_dodaci/Mobitel16/mobitel-xiaomi-redmi-note-9-pro.jpg" alt="Xiaomi Redmi Note 9 Pro">
+                        </a>
+                        
+                    </div>
+                    <h1><%= dataAll[3].nazivArtikla %></h1>
+                <ul>
+                    <li>6.67" 1080 x 2400 px</li>
+                    <li>Octa-Core 2.3GHz</li>
+                    <li><span class="memorija6_m">6GB RAM</span></li>
+                    <li><span class="disk128gb-m">128GB Memorija</span></li>
+                    <li>5020 mAh</li>
+
+                </ul>
+                <div class="cijena">
+                    <p> <% if(dataAll[3].akcija_akcija_ID!== null){%>
+
+                        <span class='cijena-akcija cijena-proizvoda' name='cijena'>
+                            <%= dataAll[3].akcijskaCijena.toFixed(2) %> kn
+                        </span>
+                        <span class='stara-cijena' name='cijena'>
+                            <%= dataAll[3].cijena %> kn
+                        </span>
+                    </p>
+                    <%}else {%>
+                    <p>
+                        <span class='cijena-proizvoda' name='cijena'>
+                            <%= dataAll[3].cijena %> kn
+                        </span>
+                        <%}%>
+                        </p>
+                    </div>
+                     <!-- ! FORMA STARTA -->
+                     <%if(dataAll[3].stanje>0)  {%>
+                        <form action="/mobiteli" method="POST">
+                            <input name="id" type="hidden" value="<%= dataAll[3].artikl_ID%>">
+                            <button type="submit" class="addBasket uKosaru">U
+                                košaricu</button>
+                        </form>
+                        <%} else{%>
+
+                        <button type="submit" class="addBasket uKosaru">U
+                            košaricu</button>
+                        <%} %>
+                </div>
+        <!-- -------------------------------------------------------- -->
+        <div class="product-ns apple">
+            <div>
+                <% if(dataAll[4].akcija_akcija_ID!== null){%>
+                <div class='akcijski-oznaka'>
+                    <p class='akcijski-znak'><%=dataAll[4].postotak%>%
+                    </p>
+                </div><%}%>
+                        <a href="/mobiteli/17">
+                            <img src="./Stranice_dodaci/Mobiteli_dodaci/Mobitel17/mobitel-apple-iphone-12-mini-64gb.jpg" alt="Mobitel Apple iPhone 12 Mini">
+                        </a>
+                       
+                    </div>
+                    <h1><%= dataAll[4].nazivArtikla %></h1>
+                <ul>
+                    <li>5.4" Super Retina XDR OLED</li>
+                    <li>Octa-Core 2.84GHz</li>
+                    <li><span class="memorija4_m">4GB RAM</span></li>
+                    <li><span class="disk64gb-m">64GB Memorija</span>
+                    </li>
+                    <li>Li-Po 2227 mAh, non-removable</li>
+
+                </ul>
+                <div class="cijena">
+                    <p> <% if(dataAll[4].akcija_akcija_ID!== null){%>
+                        <span class='cijena-akcija cijena-proizvoda' name='cijena'>
+                            <%= dataAll[4].akcijskaCijena.toFixed(2) %>
+                            kn
+                        </span>
+                        <span class='stara-cijena' name='cijena'>
+                            <%= dataAll[4].cijena %> kn
+                        </span>
+                    </p>
+                    <%}else {%>
+                    <p>
+                        <span class='cijena-proizvoda' name='cijena'>
+                            <%= dataAll[4].cijena %> kn </span>
+                        <%}%>
+                        </p>
+                    </div>
+                     <!-- ! FORMA STARTA -->
+                     <%if(dataAll[4].stanje>0)  {%>
+                        <form action="/mobiteli" method="POST">
+                            <input name="id" type="hidden" value="<%= dataAll[4].artikl_ID%>">
+                            <button type="submit" class="addBasket uKosaru">U
+                                košaricu</button>
+                        </form>
+                        <%} else{%>
+
+                        <button type="submit" class="addBasket uKosaru">U
+                            košaricu</button>
+                        <%} %>
+                </div>
+        <!-- -------------------------------------------------------- -->
+        <div class="product-ns oneplus">
+            <div>
+                <% if(dataAll[5].akcija_akcija_ID!== null){%>
+                <div class='akcijski-oznaka'>
+                    <p class='akcijski-znak'>
+                        <%=dataAll[5].postotak%>%</p>
+                </div><%}%>
+                        <a href="/mobiteli/18">
+                            <img src="./Stranice_dodaci/Mobiteli_dodaci/Mobitel18/mobitel-oneplus-8t.jpg" alt="OnePlus 8T">
+                        </a>
+                        
+                    </div>
+
+                    <h1><%= dataAll[5].nazivArtikla %></h1>
+                <ul>
+                    <li>6.55" 1080 x 2400px</li>
+                    <li>Octa-Core 2.84GHz</li>
+                    <li><span class="memorija6_m">6GB RAM</span>
+                    </li>
+                    <li><span class="disk128gb-m">128GB
+                            Memorija</span></li>
+                    <li>Li-Po 4500 mAh, non-removable</li>
+
+                </ul>
+                <div class="cijena">
+                    <p> <% if(dataAll[5].akcija_akcija_ID!== null){%>
+
+                        <span class='cijena-akcija cijena-proizvoda' name='cijena'>
+                            <%= dataAll[5].akcijskaCijena.toFixed(2) %>
+                            kn
+                        </span>
+                        <span class='stara-cijena' name='cijena'>
+                            <%= dataAll[5].cijena %> kn
+                        </span>
+                    </p>
+                    <%}else {%>
+                    <p>
+                        <span class='cijena-proizvoda' name='cijena'>
+                            <%= dataAll[5].cijena %> kn
+                        </span>
+                        <%}%>
+                        </p>
+                    </div>
+
+                     <!-- ! FORMA STARTA -->
+                     <%if(dataAll[5].stanje>0)  {%>
+
+                        <form action="/mobiteli" method="POST">
+                            <input name="id" type="hidden" value="<%= dataAll[5].artikl_ID%>">
+                            <button type="submit" class="addBasket uKosaru">U
+                                košaricu</button>
+                        </form>
+                        <%} else{%>
+
+                        <button type="submit" class="addBasket uKosaru">U
+                            košaricu</button>
+                        <%} %>
+                </div>
+        <!-- -------------------------------------------------------- -->
+        <div class="product-ns apple">
+            <div>
+                <% if(dataAll[6].akcija_akcija_ID!== null){%>
+                <div class='akcijski-oznaka'>
+                    <p class='akcijski-znak'>
+                        <%=dataAll[6].postotak%>%</p>
+                </div><%}%>
+                        <a href="/mobiteli/19">
+                            <img src="./Stranice_dodaci/Mobiteli_dodaci/Mobitel19/mobitel-apple-iphone-12-pro-max.jpg" alt="Apple iPhone 12 Pro Max">
+                        </a>
+                    </div>
+                    <h1><%= dataAll[6].nazivArtikla %></h1>
+                <ul>
+                    <li>6.7" Super Retina XDR OLED</li>
+                    <li>A14 Bionic chip</li>
+                    <li><span class="memorija6_m">6GB
+                            RAM</span></li>
+                    <li><span class="disk128gb-m">128GB
+                            Memorija</span></li>
+                    <li>3687 mAh, non-removable</li>
+                </ul>
+                <div class="cijena">
+                    <p> <% if(dataAll[6].akcija_akcija_ID!== null){%>
+
+                        <span class='cijena-akcija cijena-proizvoda' name='cijena'>
+                            <%= dataAll[6].akcijskaCijena.toFixed(2) %>
+                            kn
+                        </span>
+                        <span class='stara-cijena' name='cijena'>
+                            <%= dataAll[6].cijena %> kn
+                        </span>
+                    </p>
+                    <%}else {%>
+                    <p>
+                        <span class='cijena-proizvoda' name='cijena'>
+                            <%= dataAll[6].cijena %> kn
+                        </span>
+                        <%}%>
+                        </p>
+                    </div>
+                     <!-- ! FORMA STARTA -->
+                     <%if(dataAll[6].stanje>0)  {%>
+
+                        <form action="/mobiteli" method="POST">
+                            <input name="id" type="hidden" value="<%= dataAll[6].artikl_ID%>">
+                            <button type="submit" class="addBasket uKosaru">U
+                                košaricu</button>
+                        </form>
+                        <%} else{%>
+
+                        <button type="submit" class="addBasket uKosaru">U
+                            košaricu</button>
+                        <%} %>
+                </div>
+        <!-- -------------------------------------------------------- -->
+        <div class="product-ns samsung">
+            <div>
+                <% if(dataAll[7].akcija_akcija_ID!== null){%>
+                <div class='akcijski-oznaka'>
+                    <p class='akcijski-znak'>
+                        <%=dataAll[7].postotak%>%
+                    </p>
+                </div><%}%>
+                        <a href="/mobiteli/20">
+                            <img src="./Stranice_dodaci/Mobiteli_dodaci/Mobitel20/mobitel-samsung-galaxy-s21-ultra.jpg" alt="Samsung Galaxy S21 Ultra">
+                        </a>
+                    </div>
+                    <h1><%= dataAll[7].nazivArtikla %></h1>
+                <ul>
+                    <li>6.8" 1440x3200px</li>
+                    <li>Octa-Core 2.9GHz</li>
+                    <li><span class="memorija8_m">8GB
+                            RAM</span></li>
+                    <li><span class="disk128gb-m">128GB
+                            Memorija</span></li>
+                    <li>5000 mAh, non-removable
+                    </li>
+                </ul>
+                <div class="cijena">
+                    <p> <% if(dataAll[7].akcija_akcija_ID!== null){%>
+                        <span class='cijena-akcija cijena-proizvoda' name='cijena'>
+                            <%= dataAll[7].akcijskaCijena.toFixed(2) %>
+                            kn
+                        </span>
+                        <span class='stara-cijena' name='cijena'>
+                            <%= dataAll[7].cijena %>
+                            kn
+                        </span>
+                    </p>
+                    <%}else {%>
+                    <p>
+                        <span class='cijena-proizvoda' name='cijena'>
+                            <%= dataAll[7].cijena %>
+                            kn
+                        </span>
+                        <%}%>
+                            </p>
+                        </div>
+                     <!-- ! FORMA STARTA -->
+                     <%if(dataAll[7].stanje>0)  {%>
+                        <form action="/mobiteli" method="POST">
+                            <input name="id" type="hidden" value="<%= dataAll[7].artikl_ID%>">
+                            <button type="submit" class="addBasket uKosaru">U
+                                košaricu</button>
+                        </form>
+                        <%} else{%>
+                        <button type="submit" class="addBasket uKosaru">U
+                            košaricu</button>
+                        <%} %>
+                </div>
+        <!-- -------------------------------------------------------- -->
+        <div class="product-ns oneplus">
+            <div>
+                <% if(dataAll[8].akcija_akcija_ID!== null){%>
+                <div class='akcijski-oznaka'>
+                    <p class='akcijski-znak'>
+                        <%=dataAll[8].postotak%>%
+                    </p>
+                </div><%}%>
+                        <a href="/mobiteli/21">
+                            <img src="./Stranice_dodaci/Mobiteli_dodaci/Mobitel21/mobitel-oneplus-n10.jpg" alt="Mobitel OnePlus N10">
+                        </a>
+                    </div>
+                    <h1><%= dataAll[8].nazivArtikla %></h1>
+                <ul>
+                    <li>6.7" Super
+                        Retina XDR OLED
+                    </li>
+                    <li>Octa-Core
+                        2.84GHz</li>
+                    <li><span class="memorija6_m">6GB
+                            RAM</span>
+                    </li>
+                    <li><span class="disk128gb-m">128GB
+                            Memorija</span>
+                    </li>
+                    <li>3687 mAh,
+                        non-removable
+                    </li>
+
+                </ul>
+                <div class="cijena">
+                    <p> <% if(dataAll[8].akcija_akcija_ID!== null){%>
+                        <span class='cijena-akcija cijena-proizvoda' name='cijena'>
+                            <%= dataAll[8].akcijskaCijena.toFixed(2) %>
+                            kn
+                        </span>
+                        <span class='stara-cijena' name='cijena'>
+                            <%= dataAll[8].cijena %>
+                            kn
+                        </span>
+                    </p>
+                    <%}else {%>
+                    <p>
+                        <span class='cijena-proizvoda' name='cijena'>
+                            <%= dataAll[8].cijena %>
+                            kn
+                        </span>
+                        <%}%>
+                        </p>
+                    </div>
+                     <!-- ! FORMA STARTA -->
+                     <%if(dataAll[8].stanje>0)  {%>
+
+                        <form action="/mobiteli" method="POST">
+                            <input name="id" type="hidden" value="<%= dataAll[8].artikl_ID%>">
+                            <button type="submit" class="addBasket uKosaru">U
+                                košaricu</button>
+                        </form>
+                        <%} else{%>
+
+                        <button type="submit" class="addBasket uKosaru">U
+                            košaricu</button>
+                        <%} %>
+                </div>
+        <!-- -------------------------------------------------------- -->
+        <div class="product-ns xiaomi">
+            <div>
+                <% if(dataAll[9].akcija_akcija_ID!== null){%>
+                <div class='akcijski-oznaka'>
+                    <p class='akcijski-znak'>
+                        <%=dataAll[9].postotak%>%
+                    </p>
+                </div><%}%>
+                        <a href="/mobiteli/22">
+                            <img src="./Stranice_dodaci/Mobiteli_dodaci/Mobitel22/clone-mobitel-xaiomi-mi-11.jpg" alt="Xiaomi Mi 1">
+                        </a>
+                    </div>
+                    <h1><%= dataAll[9].nazivArtikla %></h1>
+                <ul>
+                    <li>6.81"
+                        1440x3200px
+                    </li>
+                    <li>Octa-Core
+                        2.84GHz
+                    </li>
+                    <li><span class="memorija6_m">6GB
+                            RAM</span>
+                    </li>
+                    <li><span class="disk256gb-m">256GB
+                            Memorija</span>
+                    </li>
+                    <li>4600
+                        mAh,
+                        non-removable
+                    </li>
+
+                </ul>
+                <div class="cijena">
+                    <p> <% if(dataAll[9].akcija_akcija_ID!== null){%>
+
+                        <span class='cijena-akcija cijena-proizvoda' name='cijena'>
+                            <%= dataAll[9].akcijskaCijena.toFixed(2)%>
+                            kn
+                        </span>
+                        <span class='stara-cijena' name='cijena'>
+                            <%= dataAll[9].cijena %>
+                            kn
+                        </span>
+                    </p>
+                    <%}else {%>
+                    <p>
+                        <span class='cijena-proizvoda' name='cijena'>
+                            <%= dataAll[9].cijena %>
+                            kn
+                        </span>
+                        <%}%>
+                        </p>
+                    </div>
+                     <!-- ! FORMA STARTA -->
+                     <%if(dataAll[9].stanje>0)  {%>
+
+                        <form action="/mobiteli" method="POST">
+                            <input name="id" type="hidden" value="<%= dataAll[9].artikl_ID%>">
+                            <button type="submit" class="addBasket uKosaru">U
+                                ošaricu</button>
+                        </form>
+                        <%} else{%>
+
+                        <button type="submit" class="addBasket uKosaru">U
+                            košaricu</button>
+                        <%} %>
+                </div>
+        <!-- -------------------------------------------------------- -->
+        <div class="product-ns apple">
+            <div>
+                <% if(dataAll[10].akcija_akcija_ID!== null){%>
+                <div class='akcijski-oznaka'>
+                    <p class='akcijski-znak'>
+                        <%=dataAll[10].postotak%>%
+                    </p>
+                </div><%}%>
+                        <a href="/mobiteli/35">
+                            <img src="/Stranice_dodaci/Mobiteli_dodaci/Mobitel35/apple_se_3.jpg" alt="Mobitel Apple iPhone SE">
+                        </a>
+
+                    </div>
+                    <h1><%= dataAll[10].nazivArtikla %></h1>
+
+                <ul>
+                    <li>4.7" Super Retina IPS LCD </li>
+                    <li>Octa-Core 2.84GHz </li>
+                    <li><span class="memorija3_m">3GB RAM</span> </li>
+                    <li><span class="disk64gb-m">64GB Memorija</span> </li>
+                    <li>Li-Po 1821 mAh, non-removable </li>
+
+                </ul>
+                <div class="cijena">
+                    <p> <% if(dataAll[10].akcija_akcija_ID!== null){%>
+
+                        <span class='cijena-akcija cijena-proizvoda' name='cijena'>
+                            <%= dataAll[10].akcijskaCijena.toFixed(2) %>
+                            kn
+                        </span>
+                        <span class='stara-cijena' name='cijena'>
+                            <%= dataAll[10].cijena %>
+                            kn
+                        </span>
+                    </p>
+                    <%}else {%>
+                    <p>
+                        <span class='cijena-proizvoda' name='cijena'>
+                            <%= dataAll[10].cijena %>
+                            kn
+                        </span>
+                        <%}%>
+                        </p>
+                    </div>
+
+                     <!-- ! FORMA STARTA -->
+                     <%if(dataAll[10].stanje>0)  {%>
+
+                        <form action="/mobiteli" method="POST">
+                            <input name="id" type="hidden" value="<%= dataAll[10].artikl_ID%>">
+                            <button type="submit" class="addBasket uKosaru">U
+                                košaricu</button>
+                        </form>
+                        <%} else{%>
+
+                        <button type="submit" class="addBasket uKosaru">U
+                            košaricu</button>
+                        <%} %>
+                </div>
+            </section>
+        </section>
+    </section>
+    <%- include('../partials/povratnaStrelica.ejs')%>
+            <!-- ! FOOTER -->
+            <%- include('../partials/footer.ejs')%>
+</body>
+
+</html>

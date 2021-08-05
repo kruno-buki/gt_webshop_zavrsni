@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GT - Kontakt</title>
+
+    <link rel="shortcut icon" href="IMG/logo/GT_favicon.ico">
+
+    <link rel="stylesheet" href="FrontEnd_stilovi/common.css">
+    <link rel="stylesheet" href="FrontEnd_stilovi/ostalo.css">
+
+    <script src="FrontEnd_funkcionalnosti/common.js" defer></script>
+
+    <!-- gsap -->
+    <script src="Animacije_gsap/commonAnimacija.js" defer></script>
+    <script src="Animacije_gsap/povratnaStrelicaAnimacija.js" defer></script>
+    <script src="Animacije_gsap/ostaloAnimacija.js
+    " defer></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/CSSRulePlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/ScrollTrigger.min.js"></script>
+
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Frijole&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- ! pre-HEADER -->
+    <section class="pre-header">
+        <div class="logo">
+            <a href="/"><img src="/IMG/logo/Ikona_GameTech_ikona.png" alt="LOGO"></a>
+        </div>
+
+        <div id="basket">
+            <% if(kosarica.length<2) {%>
+            <a href="/kosarica"><img src="/IMG/logo/kolica-prazna.png" alt="KOŠARICA"></a>
+            <% }else{ %>
+            <a class="kosarica-stvar" href="/kosarica"><img src="/IMG/logo/kolica-prazna.png" alt="KOŠARICA"></a>
+            <%}%>
+        </div>  
+    </section>
+    
+     <!-- ! navigacija -->
+     <%- include('../partials/navigacija.ejs')  %>
+
+            <!-- !CONTENT  -->
+            <section class="sekcija_informacije">
+
+                <div class="narudzba_wraper">
+                    <h1>narudzba i dostava</h1>
+                    <div class="reklama">
+                        <h2>to <span>fast</span> to <span>furious</span></h2>
+                        <img src="IMG/dostava_ilustracija.png" alt="slika dostava">
+
+                    </div>
+                    <div>
+                        <p>
+                           naruči iz udobnosti svojeg doma bez žurbe i sekiracije. Naše radno vrijeme je od 8:00 -
+                            20:00 ali zato
+                            naš Web shop radi od 0-24h. Ako naručiš i platiš do 15h narudžbu šaljemo isti dan.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="kontenjer_informacije kontakt_wraper">
+                    <h1>kontakt</h1>
+                    <div class="kontakt">
+                        <p><span>broj telefona:</span> +385 (1)2345678 </p>
+                        <p><span>email:</span> gametech@gmail.com </p>
+                        <p><span>fax</span> +385 (1)2345677</p>
+                        <p><span>adresa:</span> Demetrova Teuta 157C </p>
+                        <p><span>radno vrijeme:</span> pon-pet 08:00-20:00, sub: 09:00-15:00</p>
+                    </div>
+                </div>
+
+                
+                <div class="kontakt_wraper">
+                    <h1>ostale informacije</h1>
+                    <div class="kontakt">
+                        <p><span>naziv tvrtke:</span>GameTech d.o.o</p>
+                        <p><span>matični broj:</span>345671 </p>
+                        <p><span>OIB</span> 654235699919 </p>
+                        <p><span> mjesto:</span>Zagreb</p>
+                        <p><span>općina: </span>Grad Zagreb</p>
+                        <p><span>pošta:</span> 10020 N. Zagreb</p>
+                        <p><span>pravni oblik:</span> Društvo s ograničenom odgovornošću </p>
+                        <p><span> transakcijsi račun:</span>8989898-1234567891 ZAGREBAČKA BANKA DD</p>
+                        <p><span>IBAN: </span>HR9999900008888888888</p>
+                        <p><span>SWIFT/BIC</span>ZABAHR2X</p>
+                        <p><span>godina osnivanja:</span>2010.</p>
+                        <p> kapital društva od 400 000 kn u novcu</p>
+                    </div>
+
+                </div>
+            </section>
+            <%- include('../partials/povratnaStrelica.ejs')%>
+            <!-- ! FOOTER -->
+            <%- include('../partials/footer.ejs')%>
+</body>
+
+</html>

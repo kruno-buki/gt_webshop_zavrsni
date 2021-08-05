@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naplata</title>
+    <link rel="shortcut icon" href="/IMG/logo/GT_favicon.ico">
+
+    <link rel="stylesheet" href="/FrontEnd_stilovi/common.css">
+    <link rel="stylesheet" href="/Stranice_dodaci/Kosarica_dodaci/style_checkout.css">
+
+    <!-- gsap -->
+   
+    <script src="/Animacije_gsap/naplataAnimacija.js" defer></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/CSSRulePlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+    <section class="sekcija-naplata">
+        <div class="koraci">
+            <ul>
+                <li><span>1 </span> postupak naplate</li>
+                <li><span>2</span> informacije o kupcu </li>
+                <li><span>3</span> izbor plaćanja i isporuka </li>
+                <li><span class="aktivni-korak">4</span> pregled</li>
+            </ul>
+        </div>
+        <div class="naslov-placanja">
+            <h1>pregled narudzbe</h1>
+        </div>
+        <div class="form-placanje">
+
+            <form action="/naplata/4" method="POST">
+                <table id="myTable">
+
+                    <thead>
+                        <tr id="headersTable" class="header">
+                            <th scope='col'>#</th>
+                            <th scope='col'>naziv proizvoda</th>
+                            <th scope='col'>količina</th>
+
+                            <th scope='col'>cijena</th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <% if (dataProduct[1] === null || dataProduct.length <2){ %>
+                        <tr>
+                            <td colspan="4">No item in shopping Cart</td>
+                        </tr>
+                        <%} else {%>
+                        <% for(let i = 1; i < dataProduct.length; i++){ %>
+                        <%let product = dataProduct[i];  
+                    %>
+                        <tr>
+                            <td scope="row">
+                                <%= i%>
+                            </td>
+                            <td>
+                                <%= product.nazivArtikla%>
+                            </td>
+                            <td>
+                                <%= product.kolicina%>
+                            </td>
+                            <td>
+                                <%= (product.kolicina * Number(product.cijena)).toFixed(2)%> kn
+                            </td>
+                        </tr>
+
+
+                        <%}%> 
+                <tr>
+                
+                    <td colspan="3">Dostava</td>
+                    <td colspan="1"><%=Number(dataInfo.iznosDostave).toFixed(2)%> kn</td>
+                        </tr>
+
+                        <%}%>
+                <tr>
+                    <td colspan="3">Ukupna cijena: </td>
+                    <td colspan="1">
+                        <%= (dataProduct[0].total+Number(dataInfo.iznosDostave)).toFixed(2)%> kn
+                        </td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <input class="btn idi-dalje" type="submit"  value="Potvrdi narudžbu" >
+            </form>
+
+            <a href="/naplata/3"><input type="submit" class="btn vrati-se" value=" prethodni korak"></a>
+        </div>
+
+    </section>
+
+</body>
+
+</html>

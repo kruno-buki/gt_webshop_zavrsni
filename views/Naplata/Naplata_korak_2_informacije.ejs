@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naplata</title>
+    <link rel="shortcut icon" href="/IMG/logo/GT_favicon.ico">
+
+    <link rel="stylesheet" href="/FrontEnd_stilovi/common.css">
+    <link rel="stylesheet" href="/Stranice_dodaci/Kosarica_dodaci/style_checkout.css">
+
+     <!-- gsap -->
+     <script src="/Animacije_gsap/naplataAnimacija.js" defer></script>
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/gsap.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/CSSRulePlugin.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/ScrollToPlugin.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+    <section class="sekcija-naplata">
+        <div class="koraci">
+            <ul>
+                <li><span>1 </span> postupak naplate</li>
+                <li><span class="aktivni-korak">2</span> informacije o kupcu </li>
+                <li><span>3</span> izbor plaćanja i isporuka </li>
+                <li><span>4</span> pregled</li>
+            </ul>
+        </div>
+
+        <div class="naslov-placanja">
+            <h1>popunite formular</h1>
+        </div>
+
+        <div class="form-popunjavanje" id="formaKorak2">
+            <form action="/naplata/2" method="POST">
+                <div class="formDivide">
+                    <div>
+                        <p>ime:</p>
+                        <input class="info-input" type="text" placeholder="*" name="ime" required value=<%=data.ime%>>
+                    </div>
+                    <div>
+                        <p>prezime:</p>
+                        <input class="info-input" type="text" placeholder="*" name="prezime" required
+                            value=<%=data.prezime%>>
+                    </div>
+
+                    <div>
+                        <p>email:</p>
+                        <input class="info-input" type="email" placeholder="*" name="email" required
+                            value=<%=data.email%>>
+                    </div>
+                    <div>
+                        <p>DOB:</p>
+                        <input class="info-input" type="date" name="dob" value=<%=data.dob%>>
+                    </div>
+                </div>
+                <div class="formDivide">
+                    <div>
+                        <p>telefon:</p>
+                        <input class="info-input" type="tel" placeholder="*" name="telefon" required
+                            value=<%=data.telefon%>>
+                    </div>
+                    
+                    <div>
+                        <p>grad:</p>
+                        <input class="info-input" type="text" placeholder="*" name="grad" required value=<%=data.grad%>>
+                    </div>
+                    <div>
+                        <p>ulica:</p>
+                        <input class="info-input" type="text" placeholder="*" name="ulica" required
+                            value=<%=data.ulica%>>
+                    </div>
+                    <div>
+                        <p>poštanski br:</p>
+                        <input class="info-input" type="number" placeholder="*" name="postaBr" required
+                            value=<%=data.postaBr%>>
+                    </div>
+                </div>
+
+                <p><span>*</span> obvezno popuniti</p>
+
+                <input class="btn idi-dalje" type="submit" value="sljedeći korak">
+  
+            </form>
+            <a href="/naplata/1"><input type="submit" class="btn vrati-se" value="prethodni korak"> </a>
+        </div>
+    </section>
+</body>
+
+</html>

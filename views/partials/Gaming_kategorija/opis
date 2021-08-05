@@ -1,0 +1,3 @@
+Ubacio sam slike umjesto svg-a....ako ovo neću koristiti ...izbriši iz partialsa i 
+inače ubaci iz partials  na način:
+     <%- include('../partials/Gaming_kategorija/idea_1.ejs')  %>

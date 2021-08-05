@@ -1,0 +1,520 @@
+/* ! HEADER */
+/* !--------------------------------------- */
+/* !HEADER */
+header {
+    background-color: var(--color3);
+    width: 100%;
+
+    position: relative;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 1fr;
+
+
+
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.home_header {
+    width: 100%;
+    height: 400px;
+
+    background-image: url('../Stranice_dodaci/Home_dodaci/Home_header/Abstract-Wallpaper-Gallery.png');
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.home_header>svg {
+    width: 100%;
+    height: 100%;
+    flex-shrink: 2;
+}
+
+
+
+/* !--------------------------------------- */
+.kontenjer-sekcija-home {
+    margin: 10rem 0;
+
+}
+
+/* ! KARTICE - podkategorije */
+.podkategorije-kontenjer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+
+    gap: 1rem;
+
+    /* position: relative;  */
+    border-radius: 5px;
+    cursor: pointer;
+    /* height:100vh; */
+
+}
+
+.podkategorije {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+#gaming_podkategorija {
+    background-image: url('../Stranice_dodaci/Home_dodaci/Home_kategorije/gaming_povrsina.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#business_podkategorija {
+    background-image: url('../Stranice_dodaci/Home_dodaci/Home_kategorije/radna_povrsina.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.podkategorije>a:nth-child(1) {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    z-index: 1
+}
+
+.podkategorije>a:nth-child(1)>svg {
+
+
+    width: 100%;
+    height: 100%;
+    text-align: center;
+
+    border-radius: 5px;
+
+}
+
+.opis_kategorije {
+    /* display:flex; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+
+    position: absolute;
+    bottom: 400px;
+    top: 0;
+
+
+    border-radius: 5px;
+
+
+}
+
+.opis_kategorije>h2 {
+    font-size: 4rem;
+    padding: 1rem;
+
+}
+
+.opis_kategorije>p {
+    font-size: 2rem;
+    padding: 2rem;
+    font-weight: 800;
+    color: var(--color2);
+
+}
+
+.vidi_vise {
+    font-size: 3rem;
+    font-weight: bolder;
+    bottom: 50px;
+    position: relative;
+    z-index: 2;
+    width: 400px;
+    background-color: var(--color1);
+    border-radius: 5px;
+    padding: .7rem;
+    margin: 1rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+
+/* !-------------SLIDESHOW---------------------- */
+
+.sekcija-slideshow {
+
+    display: grid;
+    grid-template-columns: 1fr;
+    position: relative;
+
+    margin: 10rem 0 0 0;
+    padding: 0;
+    height: 100vh;overflow:hidden;
+}
+
+.slideshow-kontenjer {
+    /* display:grid;
+    grid-template-columns: 1fr; */
+
+    /* height: 100%; */
+    /* height: 700px; */
+    /* width:100%; */
+
+    border-radius: 5px;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+
+}
+
+.slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    
+}
+
+#mac_reklama {
+    background-image: url('../Stranice_dodaci/Home_dodaci/Galerija_Home/mac_pozadina.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#xiaomi_reklama {
+    background-image: url('../Stranice_dodaci/Home_dodaci/Galerija_Home/xiaomi_pozadina.png ');
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#acer_reklama {
+    background-image: url('../Stranice_dodaci/Home_dodaci/Galerija_Home/predator_pozadina.jpg');
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#odisej_reklama {
+    background-image: url('../Stranice_dodaci/Home_dodaci/Galerija_Home/odisej_pozadina.png');
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.slide>a:nth-child(1) {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.slide>a:nth-child(1)>svg {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+
+    width: auto;
+    margin-top: -22px;
+    padding: 1.5rem;
+
+    font-weight: bold;
+    font-size: 50px;
+    transition: .6s ease;
+    border-radius: 0 3px 3px 0;
+
+}
+
+.next {
+    right: 10px;
+    border-radius: 3px 3px 3px 3px;
+
+}
+
+.prev {
+    left: 10px;
+    border-radius: 3px 3px 3px 3px;
+
+}
+
+.prev:hover,
+.next:hover {
+    color: #f2f2f2;
+    background-color: var(--color3);
+}
+
+
+.slideshow-kontenjer .slide .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+
+    top: 0;
+    left: 2rem;
+
+    position: absolute;
+
+    padding: 1rem 2rem;
+    width: 75%;
+
+}
+
+.slideshow-kontenjer .slide .info h2 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: .9rem;
+    position: relative;
+    margin: 2rem;
+    border-radius: 5px;
+    background: rgba(15, 16, 15, 0.679);
+
+    -webkit-box-shadow: inset 0px 0px 50px 20px rgba(0, 0, 0, 0.68);
+
+    box-shadow: inset 0px 0px 50px 20px rgba(0, 0, 0, 0.68);
+    padding: 2rem;
+}
+
+.slideshow-kontenjer .slide .info p {
+    text-align: start;
+    letter-spacing: 2px;
+
+    /* color: #fff; */
+    color: var(--color2);
+    font-weight: bolder;
+    font-size: 1.5rem;
+    width: 60%;
+    padding: 1.5rem;
+    border-radius: 5px;
+    background: rgba(15, 15, 16, 0.679);
+
+
+    -webkit-box-shadow: inset 0px 0px 50px 30px rgba(0, 0, 0, 0.68);
+    box-shadow: inset 0px 0px 50px 30px rgba(0, 0, 0, 0.68);
+    margin-top: 1rem;
+  
+}
+
+/* cijena galerija */
+.slideshow-kontenjer .slide .slideshow-cijena {
+
+    padding: 1rem;
+
+    position: absolute;
+
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+
+    background: rgba(15, 15, 16, 0.535);
+    -webkit-box-shadow: inset 0px 0px 50px 10px rgba(0, 0, 0, 0.68);
+
+    box-shadow: inset 0px 0px 50px 10px rgba(0, 0, 0, 0.68);
+
+    bottom: 7rem;
+    right: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.cijena {
+    font-size: 3rem;
+    font-weight: bolder;
+
+}
+
+.akcijska-cijena {
+    color: red;
+
+}
+
+.stara-cijena {
+    font-size: 1.1rem;
+    position: relative;
+}
+
+span.stara-cijena::before {
+    content: '';
+    text-align: center;
+    position: absolute;
+    border-bottom: solid 2px rgb(245, 11, 11);
+    width: 150%;
+    left: -20px;
+    top: 50%;
+    transform: rotate(12deg);
+}
+
+
+
+.dot-navigation-bar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    height: 100px;
+    bottom: 0;
+
+}
+
+.dot-slider {
+
+    cursor: pointer;
+    height: 25px;
+    width: 25px;
+    margin: 0 3px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color .6s ease;
+
+}
+
+.active,
+.dot-slider:hover {
+    background-color: #717171
+}
+
+.vidi_vise_galerija {
+    position: absolute;
+    z-index: 2;
+    right: 3rem;
+    bottom: 0
+}
+
+.promo-akcija {
+    
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 10rem 0;
+    position:relative;
+
+    
+   
+}
+
+#naslov_akcije {
+   position:absolute;
+   top:0;
+  width:100%;
+
+    z-index:2;
+    text-align: center;
+    font-size: 7rem;
+    letter-spacing: 1rem;
+    font-family: 'Frijole', cursive, sans-serif;
+    font-weight: 400;
+    color: var(--color2);
+    flex-shrink: 2;;
+
+    
+
+}
+/* ! 700 */
+
+@media (max-width: 700px) {
+    #naslov_akcije  {
+        font-size:4rem;
+        
+        margin:0
+    }
+}
+.span_istakni{
+  font-family: 'Frijole', cursive, sans-serif;
+    color: red;
+}
+
+
+.promo-akcija div{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+     background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('../Stranice_dodaci/Home_dodaci/Akcija_pozadina.png');
+    
+}
+#akcija_animiranje {
+
+    width: 100%;
+    height: 100%;
+    
+}
+
+#akcija_animiranje>svg {
+
+    width: 100%;
+    
+}
+
+.vidi_vise_akcija {
+    position: absolute;
+    right: 3rem;
+    bottom: 0
+}
+
+/* --------------- */
+.promo-posao {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.promo-posao>h2 {
+    font-family: 'Frijole', cursive, sans-serif;
+    font-weight: initial;
+    font-size: 5rem;
+    text-align: center;
+    color: var(--color2)
+}
+.vidi_vise_posao{
+   
+    text-align: center;
+    margin:2rem;
+}
+/* -------------------------------------------- */

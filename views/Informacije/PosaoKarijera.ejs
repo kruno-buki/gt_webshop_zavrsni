@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GT - Karijera</title>
+
+    
+    <link rel="shortcut icon" href="IMG/logo/GT_favicon.ico">
+
+    <link rel="stylesheet" href="FrontEnd_stilovi/common.css">
+   
+    <link rel="stylesheet" href="FrontEnd_stilovi/ostalo.css">
+
+    <script src="FrontEnd_funkcionalnosti/common.js" defer></script>
+
+    <!-- gsap -->
+    <script src="Animacije_gsap/commonAnimacija.js" defer></script>
+    <script src="Animacije_gsap/povratnaStrelicaAnimacija.js" defer></script>
+    <script src="Animacije_gsap/ostaloAnimacija.js
+    " defer></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/CSSRulePlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/ScrollTrigger.min.js"></script>
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Frijole&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+   <!-- ! pre-HEADER -->
+   <section class="pre-header">
+    <div class="logo">
+        <a href="/"><img src="/IMG/logo/Ikona_GameTech_ikona.png" alt="LOGO"></a>
+    </div>
+
+    <div id="basket">
+        <% if(kosarica.length<2) {%>
+        <a href="/kosarica"><img src="/IMG/logo/kolica-prazna.png" alt="KOŠARICA"></a>
+        <% }else{ %>
+        <a class="kosarica-stvar" href="/kosarica"><img src="/IMG/logo/kolica-prazna.png"  alt="KOŠARICA"></a>
+        <%}%>
+    </div>  
+</section>
+    <!-- ! HEADER - Carousel -->
+    <header>
+
+
+    </header>
+    <!-- ! navigacija -->
+    <%- include('../partials/navigacija.ejs')  %>
+
+    <!-- !CONTENT  -->
+    <section class="sekcija_informacije ">
+
+        <div class="want_you_wrapper">
+            <h2>We Want <span>You!</span> </h2>
+            <img src="IMG/wantYou.png" clas="want_you" alt="Want You">           
+            <p>
+                Mi trebamo tebe a ti nas. Želiš raditi za super poslodavca koji cijeni radnika. Javi se i  postigni svoje lude snove. Ono što ti nudimo je redovita plaća, odličnu ekipu, mogućnost da puno naučiš, popust na robu,...
+            </p>
+        </div>
+       
+        <div class="otvorene_pozicije">
+            <h2>student si?</h2>
+            <p>
+                Student si? Super! Javi se. Fleksibilni smo oko radnog vremena. Idemmo u susret studentu. Ljeti uvijek
+                pojačamo sa studentima. Dobro tebi i dobro nama.
+            </p>
+            <p>
+                Svi naši zaposlenici imaju popust na robu. To uključuje i studente (😉Samo da ti natuknemo ideju da
+                možeš zaraditi i uštedjeti na super nabrijanom računalu)
+            </p>
+        </div>
+        <div class="otvorene_pozicije">
+            <h2>što tražimo od zaposlenika</h2>
+            <p>
+                Profil osoba koje tražimo je točnost, radišnost, trud, dobro uho za slušanje i volja ... ostalo je na nama.
+            </p>
+
+        </div>
+
+
+        <div class="otvorene_pozicije pozicije">
+            <h2>otvorene pozicije</h2>
+            <div>
+                <h3>Prodavač</h3>
+                <p>
+                    Imaš iskustva u radu na blagajni? Tražimo jednog prodavača/icu.  Ako i nemaš ne brini jer ćemo ti dati trening Pošalji nam svoj životopis na mail: gametech@gmail.com 
+                </p>
+            </div>
+            <div>
+                <h3>Student</h3>
+                <p>
+                    Tražimo jednog ali marljivog studenta. Nudimo ti dobre dobre uvjete rada i fleksibilnost. Tvoja zaduženja će biti u početku kao ispomoć u dućanu i skladištu. Javi nam se na mail: gametech@gmail.com 
+
+                </p>
+            </div>
+        </div>
+
+
+    </section>
+
+    <%- include('../partials/povratnaStrelica.ejs')%>
+    <!-- ! FOOTER -->
+    <%- include('../partials/footer.ejs')%>
+</body>
+
+</html>

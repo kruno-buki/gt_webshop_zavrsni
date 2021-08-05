@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GT - Study</title>
+
+    <link rel="shortcut icon" href="IMG/logo/GT_favicon.ico">
+
+    <link rel="stylesheet" href="FrontEnd_stilovi/common.css">
+    <link rel="stylesheet" href="FrontEnd_stilovi/gaming-busines.css">
+    <link rel="stylesheet" href="FrontEnd_stilovi/common_proizvodi.css">
+
+    <script src="FrontEnd_funkcionalnosti/common.js" defer></script>
+
+    <!-- gsap -->
+    <script src="Animacije_gsap/commonAnimacija.js" defer></script>
+    <script src="Animacije_gsap/povratnaStrelicaAnimacija.js" defer></script>
+    <script src="Animacije_gsap/gameBusinesAnimacije.js
+    " defer></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/CSSRulePlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/ScrollTrigger.min.js"></script>
+
+</head>
+
+<body>
+     <!-- ! pre-HEADER -->
+     <section class="pre-header">
+        <div class="logo">
+            <a href="/"><img src="/IMG/logo/Ikona_GameTech_ikona.png" alt="LOGO"></a>
+        </div>
+
+        <div id="basket">
+            <% if(kosarica.length<2) {%>
+            <a href="/kosarica"><img src="/IMG/logo/kolica-prazna.png" alt="KOŠARICA"></a>
+            <% }else{ %>
+            <a class="kosarica-stvar" href="/kosarica"><img src="/IMG/logo/kolica-prazna.png"  alt="KOŠARICA"></a>
+            <%}%>
+        </div>  
+    </section>
+    
+    <!-- ! navigacija -->
+    <%- include('../partials/navigacija.ejs')  %>
+
+    <!-- ! HEADER - Carousel -->
+    <!-- <header></header> -->
+
+     <!-- !CONTENT  -->
+     <section class="tematska-sekcija">
+        <!-- *1 -->           
+        <div class="tematski-proizvod" id="busines1">
+            <div class="wrap-opis">
+                <h2>lenovo think book 15</h2>
+                <p>
+                    probudi svoju produktivnost i kreiraj uspjeh pomoću ovog laptopa koj posjeduje izvrsne performanse i elegantni dizajn
+                </p>
+            </div>
+            <!-- slika -->
+             <a href="/laptopi/1" class="link-na-proizvod">
+                <img src="/Stranice_dodaci/Gaming_business_dodaci/Galerija_business/thinkbook1_laptop.png" alt="ideapad">
+            </a>
+
+            
+ 
+           <div class="wrapper-cijena">
+            <p> 
+                <span class='cijena-akcija cijena-proizvoda' name='cijena'>7 399.55 kn </span>
+                <span class='stara-cijena' name='cijena'> 7 789.00 kn</span>
+            </p>
+               <a href="/laptopi/1" class="vidi_vise">vidi više</a>
+           </div>
+
+        </div>
+
+
+
+        <!-- *2 -->   
+        <div class="tematski-proizvod" id="busines2">
+            <!-- slika -->
+
+            <div class="wrap-opis">
+                <h2>lenovo think book 15 G2</h2>
+                    <p>
+                        moćan, robustan, elegantan ... business laptop za izvršavanje poslovnih zadataka bilo da ste doma ili u uredu
+                    </p>
+            </div>
+               <!-- slika -->
+            <a href="/laptopi/5" class="link-na-proizvod">
+                <img src="/Stranice_dodaci/Gaming_business_dodaci/Galerija_business/thinkbook2_laptop.png" alt="ideapad">
+            </a>
+ 
+           <div class="wrapper-cijena">
+            <p> 
+                <span class=' cijena-proizvoda' name='cijena'>6 345.00 kn </span>
+                
+            </p>
+            <a href="/laptopi/5" class="vidi_vise">vidi više</a>
+           </div>
+
+        </div>
+        <!-- *3 -->   
+        <div class="tematski-proizvod" id="busines3">
+          
+            <div class="wrap-opis">
+                <h2>ultrabook hp elitebook</h2>
+                <p>
+                   među najboljim laptopima business klase koji zadovoljava i najzahtjevnije korisnike u pogledu performansi baterije, atraktivnosti izgleda, odličnim 1080p displayom i brzim procesorom
+                </p>
+            </div>
+            <a href="/laptopi/12" class="link-na-proizvod">
+                <img src="/Stranice_dodaci/Gaming_business_dodaci/Galerija_business/elitebook_laptop.png" alt="ideapad">
+            </a>
+ 
+           <div class="wrapper-cijena">
+            <p> 
+                <span class='cijena-proizvoda' name='cijena'>10 567.00kn</span>
+               
+            </p>
+               <a href="/laptopi/12" class="vidi_vise">vidi više</a>
+           </div>
+
+        </div>
+      
+
+    </section>
+
+    <%- include('../partials/povratnaStrelica.ejs')%>
+    <!-- ! FOOTER -->
+    <%- include('../partials/footer.ejs')%>
+
+</body>
+</html>

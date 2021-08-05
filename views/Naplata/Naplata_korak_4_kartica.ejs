@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placanje</title>
+    <link rel="shortcut icon" href="/IMG/logo/GT_favicon.ico">
+
+    <link rel="stylesheet" href="/FrontEnd_stilovi/common.css">
+    <link rel="stylesheet" href="/Stranice_dodaci/Kosarica_dodaci/style_checkout.css">
+
+    <!-- gsap -->
+    <script src="/Animacije_gsap/naplataAnimacija.js" defer></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/CSSRulePlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/ScrollTrigger.min.js"></script>
+    <!-- <script src="/Stranice_dodaci/Kosarica_dodaci/script_checkout.js" defer></script> -->
+</head>
+
+<body>
+    <section class="sekcija-naplata">
+
+        <div class="naslov-placanja">
+            <h1>kartično plaćanje</h1>
+        </div>
+
+        <!-- <div class="karticna-naplata"> -->
+        <div class="form-kartica">
+
+            <form action="/naplata/5" method="POST">
+                <div>
+                    <p>puno ime i prezime:</p>
+                    
+                        <input type="text" class="info-input" placeholder="*" required>
+                    
+                </div>
+
+                <div>
+                    <p>CVV </p>
+                    <input type="password" class="info-input" required placeholder="*">
+                    
+                </div>
+
+                <div>
+                    <p>broj kartice:</p>
+                    <input type="password" class="info-input" max=12 placeholder="*" required>
+
+                </div>
+
+                <div>
+                    <p>datum na kartici:</p>
+                    <div class="date-kartica">
+                        <select name="mjesec" id="mjesec" class="info-input" required>
+
+                            <option value="Sij">Siječanj (Januar)</option>
+                            <option value="Velj">Veljača (Februar)</option>
+                            <option value="Ožu">Ožujak (March)</option>
+                            <option value="Trav">Travanj (April)</option>
+                            <option value="Svi">Svibanj (May)</option>
+                            <option value="Lip">Lipanj (June)</option>
+                            <option value="Srp">Srpanj (July)</option>
+                            <option value="Kol">Kolovoz (August)</option>
+                            <option value="Ruj">Rujan (September)</option>
+                            <option value="Lis">Listopad (October)</option>
+                            <option value="Stu">Studeni (November)</option>
+                            <option value="Pro">Prosinac (December)</option>
+
+                        </select>
+                        <select name="godina" class="info-input" id="godina" required>
+                            <option value="2021">2021</option>
+                            <option value="2020">2022</option>
+                            <option value="2019">2023</option>
+                            <option value="2018">2024</option>
+                            <option value="2017">2025</option>
+                        </select>
+
+                    </div>
+
+
+                </div>
+                <p><span>*</span> obvezno popuniti</p>
+                <div class="logo-kartice">
+                    <img src="/IMG/kartice/maestro.svg" alt=" maestro">
+                    <img src="/IMG/kartice/visa.svg" alt="visa">
+                    <img src="/IMG/kartice/paypal.svg" alt="paypal">
+                </div>
+                
+                <input class="btn idi-dalje" type="submit" value="potvrdi podatke ">
+
+            </form>
+
+            <a href="/naplata/4">
+                <input class="btn vrati-se" value="prethodni korak">
+            </a>
+
+
+        </div>
+
+
+    </section>
+</body>
+
+</html>

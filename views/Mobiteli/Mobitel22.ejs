@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <!-- !HEAD -->
+  <%- include('../partials/proizvodi_head_tag.ejs')  %> 
+
+<!-- ! pre-HEADER -->
+<section class="pre-header">
+    <div class="logo">
+        <a href="/"><img src="/IMG/logo/Ikona_GameTech_ikona.png" alt="LOGO"></a>
+    </div>
+
+    <div id="basket">
+        <% if(kosarica.length<2) {%>
+           <a href="/kosarica"><img src="/IMG/logo/kolica-prazna.png" alt="KOŠARICA"></a>
+        <% }else{ %>
+          <a class="kosarica-stvar" href="/kosarica"><img src="/IMG/logo/kolica-prazna.png"  alt="KOŠARICA"></a>
+        <%}%>
+    </div>  
+</section>
+ <!-- ! NAVIGACIJA -->
+ <%- include('../partials/navigacija.ejs')  %> 
+    <!-- ! HEADER - Carousel -->
+    <header>
+
+    </header>
+   
+    <!-- !CONTENT  -->
+    <section class="all-content vidi-vise-content">
+        <section class="slideshowContainer-vidiVise">
+            <!-- Container for the image gallery -->
+
+
+            <!-- Full-width images with number text -->
+            <div class="slides-vidiVise">
+                <div class="numbertext">1 / 2</div>
+                <img src="../Stranice_dodaci/Mobiteli_dodaci/Mobitel22/clone-mobitel-xaiomi-mi-11.jpg">
+            </div>
+
+            <div class="slides-vidiVise">
+                <div class="numbertext">2 / 2</div>
+                <img src="../Stranice_dodaci/Mobiteli_dodaci/Mobitel22/clone-mobitel-xaiomi-mi-11_2.jpg">
+            </div>
+
+
+            <!-- Next and previous buttons -->
+            <a class="prevV" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="nextT" onclick="plusSlides(1)">&#10095;</a>
+
+            <!-- Image text -->
+            <div class="caption-container">
+                <p id="caption"></p>
+            </div>
+
+            <!-- Thumbnail images -->
+            <div class="row-picture">
+                <div class="column-picture">
+                    <img class="demo cursor" src="../Stranice_dodaci/Mobiteli_dodaci/Mobitel22/clone-mobitel-xaiomi-mi-11.jpg" onclick="currentSlide(1)"
+                        alt="xiaomi m1 slika 1">
+                </div>
+              
+                <div class="column-picture">
+                    <img class="demo cursor"
+                        src="../Stranice_dodaci/Mobiteli_dodaci/Mobitel22/clone-mobitel-xaiomi-mi-11_2.jpg"
+                        onclick="currentSlide(2)" alt="xiaomi m1 slika 2">
+                </div>
+                
+            </div>
+
+        </section>
+        <section class="karakteristike">
+            <div>
+                <h1><%= data.nazivArtikla %></h1>
+                <ul>
+                    <li>Ekran: 6.81" 1440x3200px</li>
+                    <li>Procesor: CPU Octa-core (1x2.84 GHz Kryo 680 & 3x2.42 GHz Kryo 680 & 4x1.80 GHz Kryo 680</li>
+                    <li>Baterija: Li-Po 4600 mAh, non-removable</li>
+                    <li>Kamera: 108+13+5/20MP</li>
+                    <li>Memorija: 6GB / 256GB</li>
+                    <li>Chipset Qualcomm SM8350 Snapdragon 888 5G (5 nm)</li>
+                    <li>GPU Adreno 660</li>
+                    <li>Težina: 190 g</li>
+                    
+                </ul>
+            </div>
+
+            <!-- 2 -->
+            <div>
+                <p>na stanju: <span><%= data.stanje%></span> komada</p>
+
+
+                <div class="cijena-pojedinačna">
+
+                    <p> <% if(data.akcija_akcija_ID!== null){%>
+
+                        <span class='cijena-akcija cijena-proizvoda' name='cijena'>
+                            <%= data.akcijskaCijena.toFixed(2)%> kn
+                        </span>
+                        <span class='stara-cijena' name='cijena'>
+                            <%= data.cijena %>kn
+                        </span> 
+                    </p>
+                    <%}else {%>
+                    <p>
+                        <span class='cijena-proizvoda' name='cijena'>
+                            <%= data.cijena %> kn
+                        </span>
+                        <%}%>
+                        </p>
+                            
+                </div>
+            </div>
+            <!-- 3 -->
+            <div>
+               
+                    <!-- ! FORMA STARTA -->
+                    <%if(data.stanje>0)  {%>
+                    <form action="/mobiteli/22" method="POST">
+                    <input name="id" type="hidden" value="<%= data.artikl_ID%>">
+                        <button type="submit" class="addBasket uKosaru">u košaricu</button>
+                    </form>
+                    <%} else{%>
+                        <button type="submit" class="addBasket uKosaru stanje-nula">u košaricu</button>
+                    <%} %>
+
+                    <a href="../mobiteli" class='pogledaj-ostalo'>
+                        <p>pogledaj ostale mobitele</p>
+                    </a> 
+
+            </div>
+    </section>
+
+    </section>
+        <!-- ! FOOTER -->
+        <%- include('../partials/footer.ejs')  %> 
+    </body>
+    
+    </html>
