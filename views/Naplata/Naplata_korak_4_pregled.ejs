@@ -38,7 +38,6 @@
 
             <form action="/naplata/4" method="POST">
                 <table id="myTable">
-
                     <thead>
                         <tr id="headersTable" class="header">
                             <th scope='col'>#</th>
@@ -56,38 +55,25 @@
                         </tr>
                         <%} else {%>
                         <% for(let i = 1; i < dataProduct.length; i++){ %>
-                        <%let product = dataProduct[i];  
-                    %>
+                        <%let product = dataProduct[i];  %>
                         <tr>
-                            <td scope="row">
-                                <%= i%>
-                            </td>
-                            <td>
-                                <%= product.nazivArtikla%>
-                            </td>
-                            <td>
-                                <%= product.kolicina%>
-                            </td>
-                            <td>
-                                <%= (product.kolicina * Number(product.cijena)).toFixed(2)%> kn
-                            </td>
+                            <td scope="row"> <%= i%> </td>
+                            <td> <%= product.nazivArtikla%> </td>
+                            <td> <%= product.kolicina%> </td>
+                            <td> <%= (product.kolicina * Number(product.cijena)).toFixed(2)%> kn </td>
                         </tr>
-
-
-                        <%}%> 
-                <tr>
-                
-                    <td colspan="3">Dostava</td>
-                    <td colspan="1"><%=Number(dataInfo.iznosDostave).toFixed(2)%> kn</td>
-                        </tr>
-
+                         <%}%> 
+                    <tr>                
+                        <td colspan="3">Dostava</td>
+                        <td colspan="1"><%=Number(dataInfo.iznosDostave).toFixed(2)%> kn</td>
+                    </tr>
                         <%}%>
-                <tr>
-                    <td colspan="3">Ukupna cijena: </td>
-                    <td colspan="1">
-                        <%= (dataProduct[0].total+Number(dataInfo.iznosDostave)).toFixed(2)%> kn
+                    <tr>
+                        <td colspan="3">Ukupna cijena: </td>
+                        <td colspan="1">
+                            <%= (dataProduct[0].total+Number(dataInfo.iznosDostave)).toFixed(2)%> kn
                         </td>
-                        </tr>
+                    </tr>
                     </tbody>
                 </table>
                 
