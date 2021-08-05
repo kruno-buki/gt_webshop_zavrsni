@@ -65,6 +65,7 @@ td {
     border: 2px solid;
     height: 2.5rem;
     padding: 10px;
+    font-size: 1.5rem;
 }
 
 .tbl-cijena {
@@ -307,12 +308,12 @@ input.info-input{
 }
 .vrati-se {
     background-color: var(--color5);
+    opacity:.5;  
     margin:2rem 0;
 }
-.idi-dalje {
-    
-    background-color: var(--color1);
-    
+.idi-dalje {    
+    background-color: var(--color2);
+    opacity:.5    
 }
 
 

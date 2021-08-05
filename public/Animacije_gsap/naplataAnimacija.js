@@ -89,7 +89,7 @@ if(checkSljedeceDugme!=null){
         duration: .2,
         paused: true,
         ease: "slow",
-        border: '3px solid   #86C232',
+        opacity:1
 });
 
 checkSljedeceDugme.addEventListener("mouseenter", () => hoverSljedeciKorak.play());
@@ -105,32 +105,13 @@ if (checkPrethodnoDugme != null) {
                 duration: .2,
                 paused: true,
                 ease: "slow",
-                border: '3px solid  green',
+                border: '3px solid green',
+                opacity:1
         });
 
         checkPrethodnoDugme.addEventListener("mouseenter", () => hoverPrethodniKorak.play());
         checkPrethodnoDugme.addEventListener("mouseleave", () => hoverPrethodniKorak.reverse());
 }
-
-
-// ---KC
-// let vvv= gsap.to(e, {
-//     scale:1.1,
-//     duration: .2,
-//     paused: true,
-//     ease: "slow",
-//     border: '3px solid #86C232',
-//     fontWeight:'bold', 
-
-// })
-// checkPrethodnoDugme.addEventListener("mouseenter", () => {
-//     hoverPrethodniKorak.play()
-//     vvv.play()
-// });
-// checkPrethodnoDugme.addEventListener("mouseleave", () => {
-//     hoverPrethodniKorak.reverse()
-//     vvv.reverse()
-// });
 
 //! naglašavanje koraka NAD dugme kosarica
 let aktivniKorak=document.querySelector('.aktivni-korak')
