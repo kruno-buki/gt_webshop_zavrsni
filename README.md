@@ -31,4 +31,4 @@
 
 - ako se javi greška zbog koje se nemoguće povezati na bazu ('Error: connect ECONNREFUSED 127.0.0.1:3306') unutar datoteke database.js, upisati password/lozinku ili promijeniti user vrijednost koju korisnik koristi za mySQL
 
-![alt text](https://github.com/gt_webshop_zavrsni/blob/main/public/IMG/Crveni_art.png?raw=true)
+![alt text](https://github.com/kruno-buki/gt_webshop_zavrsni/blob/main/public/IMG/Crveni_art.png?raw=true)
