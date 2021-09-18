@@ -4,7 +4,7 @@
 
 ## The final project for the bachelor's degree (VSITE).
 
-## Završni projekt
+## 👉🏻 Technologies: HTML, CSS, JavaScript, Node.js (Express, EJS),  MySQL, GSAP
 
 ![alt text](https://github.com/kruno-buki/gt_webshop_zavrsni/blob/main//public/IMG/git_prikaz.png?raw=true)
 
