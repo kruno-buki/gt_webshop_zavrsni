@@ -1,6 +1,6 @@
-# GameTech webshop
+# GameTech webshop 😁
 
-## Webshop - electronic store for computer equipment
+## Webshop - electronic store for computer equipment 💲
 
 ## The final project for the bachelor's degree (VSITE).
 
